@@ -39,7 +39,7 @@ import linkedin from "./company/linkedin.png";
 import nomad from "./company/nomad.png";
 
 import portfolio from "./portfolio.png";
-import greenspace from "./greenspace.png";
+import hl7chatbotinterface from "./hl7chatbotinterface.png";
 import proplan from "./proplan.png";
 import sushirestaurant from "./sushirestaurant.png";
 import newssummarize from "./newssummarize.png"
@@ -82,8 +82,8 @@ export {
   csharp,
   flutter,
   proplan,
-  greenspace,
   portfolio,
   sushirestaurant,
-  newssummarize
+  newssummarize,
+  hl7chatbotinterface,
 };

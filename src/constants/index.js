@@ -23,7 +23,7 @@ import {
     java,
     flutter,
     proplan,
-    greenspace,
+    hl7chatbotinterface,
     portfolio,
     sushirestaurant,
     newssummarize,
@@ -310,25 +310,32 @@ import {
 },
 
     {
-      name: "Green Space Ease",
-      description:
-        "Embark on a transformative journey with 'Green Space Ease', a visionary mobile app conceptualized and presented during an 8-week experiential learning program under the esteemed Wavemakers initiative. As part of team 'YellowWave,' we delved into the planning phase, laying the groundwork for an app designed to enhance accessibility to greenspaces.",
-      tags: [
-        {
-          name: "react-native",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "tailwindcss",
-          color: "green-text-gradient",
-        },
-        {
-          name: "mongoDB",
-          color: "pink-text-gradient",
-        },
-      ],
-      image: greenspace,
-      source_code_link: "https://github.com/ho0405/greenspace/",
+      name: "HL7 Converter and Chatbot Interface",
+    description: "Dive into the world of healthcare data interchange with our capstone project, the HL7 Converter and Chatbot Interface. This innovative software solution leverages the robust Flask backend and Python's Tesseract OCR for efficient conversion of PDF documents into HL7 format, facilitating seamless data sharing among various healthcare information systems. With a sleek front-end designed using React JS, users can experience intuitive interactions and easy navigation. The project also integrates Firebase for authentication, ensuring secure access and user management, alongside a custom chatbot powered by OpenAI's API for real-time assistance.",
+    tags: [
+    {
+      name: "flask",
+      color: "orange-text-gradient"
+    },
+    {
+      name: "react",
+      color: "blue-text-gradient"
+    },
+    {
+      name: "firebase",
+      color: "green-text-gradient"
+    },
+    {
+      name: "python tesseract",
+      color: "pink-text-gradient"
+    },
+    {
+      name: "openai api",
+      color: "purple-text-gradient"
+    }
+  ],
+  image: hl7chatbotinterface,
+  source_code_link: "https://github.com/ho0405/hi7_hl7fb"
     },
     
   ];
