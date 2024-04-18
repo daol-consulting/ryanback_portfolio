@@ -311,7 +311,7 @@ import {
 
     {
       name: "HL7 Converter and Chatbot Interface",
-    description: "Dive into the world of healthcare data interchange with our capstone project, the HL7 Converter and Chatbot Interface. This innovative software solution leverages the robust Flask backend and Python's Tesseract OCR for efficient conversion of PDF documents into HL7 format, facilitating seamless data sharing among various healthcare information systems. With a sleek front-end designed using React JS, users can experience intuitive interactions and easy navigation. The project also integrates Firebase for authentication, ensuring secure access and user management, alongside a custom chatbot powered by OpenAI's API for real-time assistance.",
+    description: "Dive into the world of healthcare data interchange with our capstone project, the HL7 Converter and Chatbot Interface. This innovative software solution leverages the robust Flask backend and Python's Tesseract OCR for efficient conversion of PDF documents into HL7 format, facilitating seamless data sharing among various healthcare information systems. With a sleek front-end designed using React JS, users can experience intuitive interactions and easy navigation. The project also integrates Firebase for authentication, ensuring secure access and user management, alongside a custom chatbot powered by botpenguin for real-time assistance.",
     tags: [
     {
       name: "flask",
@@ -330,7 +330,7 @@ import {
       color: "pink-text-gradient"
     },
     {
-      name: "openai api",
+      name: "pyteserract",
       color: "purple-text-gradient"
     }
   ],
