@@ -40,12 +40,12 @@ import {
       title: "Learned",
     },
     {
-      id: "connect",
-      title: "Connect with me",
-    },
-    {
       id: "works",
       title: "Works",
+    },
+    {
+      id: "connect",
+      title: "Connect with me",
     },
     {
       id: "contact",
@@ -335,7 +335,7 @@ import {
     }
   ],
   image: hl7chatbotinterface,
-  source_code_link: "https://github.com/ho0405/hi7_hl7fb"
+  source_code_link: "https://github.com/ho0405/frontend_hl7"
     },
     
   ];
