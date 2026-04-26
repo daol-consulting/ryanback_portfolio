@@ -21,4 +21,10 @@ const CanvasLoader = () => {
   )
 }
 
+export const SectionLoader = () => (
+  <div className="w-full h-[300px] flex items-center justify-center">
+    <div className="canvas-loader" />
+  </div>
+)
+
 export default CanvasLoader

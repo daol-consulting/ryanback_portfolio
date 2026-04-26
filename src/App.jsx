@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter } from "react-router-dom";
-import { About, Contact, Experience, Connect, Hero, Navbar, Works, StarsCanvas } from './components';
+import { About, Contact, Experience, Connect, Hero, Navbar, Works } from './components';
+
+const StarsCanvas = lazy(() => import("./components/canvas/Stars"));
 
 
 const App = () => {
@@ -19,7 +21,9 @@ const App = () => {
         <Connect />
         <div className="relative z-0">
           <Contact />
-          <StarsCanvas />
+          <Suspense fallback={null}>
+            <StarsCanvas />
+          </Suspense>
         </div>
       </div>
     </BrowserRouter>

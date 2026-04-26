@@ -131,7 +131,7 @@ import {
   
   const experiences = [
     {
-      title: "Software Development Program",
+      title: "Software Development Diploma",
       company_name: "Southern Alberta Institute of Technology (SAIT)",
       icon: sait, 
       iconBg: "#383E56",
@@ -193,7 +193,7 @@ import {
         "Passionate SAIT Software Development student with a focus on AI development. Let's connect and explore the tech landscape together!",
       name: "ryan-back",
       company: "LinkedIn",
-      image: "src/assets/company/linkedin.png",
+      image: "src/assets/company/linkedin.webp",
       socialLink:"https://www.linkedin.com/in/ryan-back/",
     },
     {
@@ -201,7 +201,7 @@ import {
         "Aspiring AI developer showcasing diverse projects from 3D environments to web apps. Excited to collaborate and learn in the coding world!",
       name: "ho0405",
       company: "Github",
-      image: "src/assets/github.png",
+      image: "src/assets/github.webp",
       socialLink:"https://github.com/ho0405",
     },
     {
