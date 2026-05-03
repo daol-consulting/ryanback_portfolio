@@ -191,23 +191,11 @@ export const career = [
   },
 ];
 
-/** @deprecated Prefer `career`; kept for timeline component compatibility. */
-export const experiences = career.map((entry) => ({
-  title: entry.role_title,
-  company_name: `${entry.company_name}, ${entry.location}`,
-  icon: entry.logo ?? web,
-  iconBg: entry.logo_bg ?? "#f4fbff",
-  date: entry.period,
-  company_website: entry.company_website,
-  points: entry.projects.map((p) => `${p.title} — ${p.description}`),
-}));
-
 /**
  * @type {Array<{
  *   connect: string;
  *   name: string;
  *   company: string;
- *   image: string;
  *   socialLink: string;
  *   omitHandlePrefix?: boolean;
  * }>}
@@ -218,7 +206,6 @@ export const connect = [
       "Independent studio in Calgary—Next.js/React client sites and funnels, Google/Meta growth with attributable conversions, internal marketing tooling, subscription invoicing via Gmail/Google Docs on renewal dates (Make · n8n)—and an in‑flight headless Shopify store (React · TypeScript · Vercel) for e‑commerce and general merchandise.",
     name: "daolconsulting.com",
     company: "Daol Consulting",
-    image: "src/assets/web.webp",
     socialLink: "https://daolconsulting.com",
     omitHandlePrefix: true,
   },
@@ -227,7 +214,6 @@ export const connect = [
       "Full-stack software engineer based in Calgary—production ERP work, Daol Consulting delivery (sites, ads, tooling), and a TypeScript-forward stack. Open to aligned roles and serious collaboration.",
     name: "ryan-back",
     company: "LinkedIn",
-    image: "src/assets/company/linkedin.webp",
     socialLink: "https://www.linkedin.com/in/ryan-back/",
   },
   {
@@ -235,7 +221,6 @@ export const connect = [
       "Personal account—side projects and experiments (React, TypeScript, Supabase, Firebase when it fits). Employer ERP at Posy is proprietary and not mirrored here.",
     name: "ho0405",
     company: "GitHub · personal",
-    image: "src/assets/github.webp",
     socialLink: PROFILE_LINKS.github,
   },
   {
@@ -243,7 +228,6 @@ export const connect = [
       "Daol Consulting on GitHub—TypeScript repos for shipped client work (e.g. dental, institutes, restaurant landing systems). See github.com/consulting-daol.",
     name: "consulting-daol",
     company: "GitHub · Daol org",
-    image: "src/assets/github.webp",
     socialLink: PROFILE_LINKS.githubDaolOrg,
     omitHandlePrefix: true,
   },
