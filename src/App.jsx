@@ -8,7 +8,6 @@ import { SectionAurora } from "./components/aceternity/SectionAurora";
 import SkillStrengthThemesMobileCarousel, {
   SkillStrengthThemeCard,
 } from "./components/SkillStrengthThemesMobileCarousel";
-import ParallaxFloat from "./components/ui/ParallaxFloat";
 import ScrollRevealItem from "./components/ui/ScrollRevealItem";
 import { FadeContent, GlareHover, Magnet } from "./react-bits";
 import { skillCategoryGroups, SKILL_GROUP_PILL_SURFACE } from "./constants";
@@ -27,7 +26,7 @@ import {
 const sectionWrapClass =
   "w-full max-w-7xl 2xl:max-w-[min(88rem,calc(100vw-4rem))] mx-auto section-pad-x py-8 sm:py-12 md:py-16 lg:py-[4.5rem] xl:py-20";
 const glassPanelClass =
-  "rounded-[22px] border border-brand-light/65 bg-white/85 p-3.5 sm:p-5 md:p-6 shadow-[0_14px_40px_-28px_rgba(15,76,117,0.18)] backdrop-blur-md transition-colors duration-300 hover:border-brand-primary/38";
+  "rounded-[22px] border border-brand-light/65 bg-white/90 p-3.5 sm:p-5 md:p-6 shadow-[0_14px_40px_-28px_rgba(15,76,117,0.18)] backdrop-blur-sm transition-colors duration-300 hover:border-brand-primary/38";
 
 const motionEase = [0.22, 1, 0.36, 1];
 
@@ -209,14 +208,19 @@ const App = () => {
   }, [heroLineIndex]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const y = window.scrollY;
+    let rafId = null;
+    const pending = { y: 0 };
+
+    const flush = () => {
+      rafId = null;
+      const y = pending.y;
       const wasY = lastScrollYRef.current;
       const delta = y - wasY;
       const isScrollingUp = delta < -2;
       const isScrollingDown = delta > 2;
 
-      setNavDepth(y > 360 ? 2 : y > 120 ? 1 : 0);
+      const nextDepth = y > 360 ? 2 : y > 120 ? 1 : 0;
+      setNavDepth((d) => (d === nextDepth ? d : nextDepth));
 
       if (y <= 20) {
         setShowQuickNav(false);
@@ -232,18 +236,28 @@ const App = () => {
 
       updateActiveSectionFromScroll();
 
-      setShowScrollTop(y > 360);
+      const nextScrollTop = y > 360;
+      setShowScrollTop((prev) => (prev === nextScrollTop ? prev : nextScrollTop));
 
       lastScrollYRef.current = y;
     };
 
-    handleScroll();
+    const handleScroll = () => {
+      pending.y = window.scrollY;
+      if (rafId == null) {
+        rafId = requestAnimationFrame(flush);
+      }
+    };
+
+    pending.y = window.scrollY;
+    flush();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
+      if (rafId != null) cancelAnimationFrame(rafId);
     };
   }, [updateActiveSectionFromScroll]);
 
@@ -349,7 +363,7 @@ const App = () => {
                     {activeSection === section && reduceMotion ? (
                       <span className="pointer-events-none absolute inset-0 rounded-full bg-brand-deep" />
                     ) : null}
-                    <span className="relative z-[1]">{section}</span>
+                    <span className="relative z-[1] capitalize">{section}</span>
                   </a>
                 </li>
               ))}
@@ -409,7 +423,7 @@ const App = () => {
       <section id="about" className="scroll-mt-20 sm:scroll-mt-24 bg-brand-surface relative overflow-hidden rounded-t-3xl md:rounded-t-[2rem]">
         <SectionAurora tone="surface" />
         <div className={`${sectionWrapClass} relative z-10`}>
-          <FadeContent blur duration={900} threshold={0.15} className="w-full">
+          <FadeContent duration={900} threshold={0.15} className="w-full">
             <EditorialSectionHeading kicker="Profile" title="About" />
             <ProfileQuickLinks className="mt-4 sm:mt-5" />
             <div className="relative mt-6 md:mt-10 flex flex-col md:flex-row md:items-start md:gap-8 lg:gap-10 xl:gap-11 md:justify-between">
@@ -519,7 +533,7 @@ const App = () => {
               </div>
             </ScrollRevealItem>
             {reduceMotion ? (
-              <div className="mt-5 lg:mt-6 max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-auto rounded-[24px] border border-brand-light/70 bg-white/70 px-4 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 shadow-[0_18px_48px_-36px_rgba(15,76,117,0.2)] backdrop-blur-xl space-y-5 sm:space-y-5">
+              <div className="mt-5 lg:mt-6 max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-auto rounded-[24px] border border-brand-light/70 bg-white/75 px-4 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 shadow-[0_18px_48px_-36px_rgba(15,76,117,0.2)] backdrop-blur-md space-y-5 sm:space-y-5">
                 {skillCategoryGroups.map((group) => (
                   <div key={group.id}>
                     <p className="text-[11px] sm:text-[12px] font-semibold tracking-[0.2em] uppercase text-brand-deep border-b border-brand-light/65 pb-1.5 mb-2.5">
@@ -550,7 +564,7 @@ const App = () => {
               </div>
             ) : (
               <motion.div
-                className="mt-5 lg:mt-6 max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-auto rounded-[24px] border border-brand-light/70 bg-white/70 px-4 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 shadow-[0_18px_48px_-36px_rgba(15,76,117,0.2)] backdrop-blur-xl space-y-5 sm:space-y-5"
+                className="mt-5 lg:mt-6 max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-auto rounded-[24px] border border-brand-light/70 bg-white/75 px-4 py-5 sm:px-6 sm:py-6 lg:px-7 lg:py-7 shadow-[0_18px_48px_-36px_rgba(15,76,117,0.2)] backdrop-blur-md space-y-5 sm:space-y-5"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.12, margin: "0px 0px -16% 0px" }}
@@ -594,7 +608,7 @@ const App = () => {
       <section id="career" className="scroll-mt-20 sm:scroll-mt-24 bg-brand-surface relative overflow-hidden text-slate-900">
         <SectionAurora tone="surface" />
         <div className={`${sectionWrapClass} relative z-10`}>
-          <FadeContent blur duration={900} threshold={0.15} className="w-full min-w-0">
+          <FadeContent duration={900} threshold={0.15} className="w-full min-w-0">
             {/* Mirror Skills asymmetry: Skills uses lg:ml-auto (inset from left); Career uses lg:mr-auto (inset from right). */}
             <div className="max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-0 lg:mr-auto">
               <EditorialSectionHeading kicker="Experience" title="Career" />
@@ -852,11 +866,7 @@ const App = () => {
                   </p>
                 ) : null}
                 {project.image ? (
-                  <ParallaxFloat
-                    yRange={24}
-                    className="mt-3 overflow-hidden rounded-xl border border-brand-light/80"
-                    innerClassName="block"
-                  >
+                  <div className="mt-3 overflow-hidden rounded-xl border border-brand-light/80">
                     <motion.img
                       src={project.image}
                       alt={project.name}
@@ -866,7 +876,7 @@ const App = () => {
                       whileHover={reduceMotion ? undefined : { scale: 1.02 }}
                       transition={{ duration: 0.35, ease: motionEase }}
                     />
-                  </ParallaxFloat>
+                  </div>
                 ) : null}
                 <p className="mt-3 text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text">{projectBlurb}</p>
                 <div className="mt-3 flex flex-wrap gap-1.5">
@@ -940,7 +950,7 @@ const App = () => {
             ))}
           </div>
 
-          <FadeContent blur duration={800} threshold={0.14} className="mt-5 max-w-4xl xl:max-w-5xl w-full mx-auto lg:mx-0 block">
+          <FadeContent duration={800} threshold={0.14} className="mt-5 max-w-4xl xl:max-w-5xl w-full mx-auto lg:mx-0 block">
           <ScrollRevealItem y={16} amount={0.2} className="block">
             <GlareHover
               className="rounded-[24px]"

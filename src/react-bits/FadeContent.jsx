@@ -51,6 +51,7 @@ export function FadeContent({
       paused: true,
       delay: getSeconds(delay),
       onComplete: () => {
+        gsap.set(el, { clearProps: "willChange" });
         if (onComplete) onComplete();
         if (disappearAfter > 0) {
           gsap.to(el, {

@@ -195,6 +195,12 @@ body {
 }
 
 /* Aceternity-style section mesh (soft orbs — no grid) */
+.acet-orb {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 .acet-orb-a {
   animation: acetOrbDriftA 22s ease-in-out infinite alternate;
 }
@@ -772,6 +778,10 @@ body {
 
   .animate-spin-slow {
     animation: none !important;
+  }
+
+  .acet-orb {
+    will-change: auto !important;
   }
 
   .acet-orb-a,

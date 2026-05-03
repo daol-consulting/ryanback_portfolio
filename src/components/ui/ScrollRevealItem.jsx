@@ -45,6 +45,7 @@ export default function ScrollRevealItem({
       initial="hidden"
       whileInView="visible"
       viewport={{ once, amount, margin }}
+      layout={false}
       variants={{
         hidden: { opacity: 0, x, y },
         visible: {
