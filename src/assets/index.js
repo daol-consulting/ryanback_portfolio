@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import backend from "./backend.webp";
 import creator from "./creator.webp";
+import aboutProfile from "./about-profile-3d.png";
 import mobile from "./mobile.webp";
 import web from "./web.webp";
 import github from "./github.webp";
@@ -39,6 +40,7 @@ import linkedin from "./company/linkedin.webp";
 import nomad from "./company/nomad.webp";
 
 import portfolio from "./portfolio.webp";
+import dontgobrokePromo from "./dontgobroke-promo.png";
 import hl7chatbotinterface from "./hl7chatbotinterface.webp";
 import proplan from "./proplan.webp";
 import sushirestaurant from "./sushirestaurant.webp";
@@ -48,6 +50,7 @@ export {
   logo,
   backend,
   creator,
+  aboutProfile,
   mobile,
   web,
   github,
@@ -83,6 +86,7 @@ export {
   flutter,
   proplan,
   portfolio,
+  dontgobrokePromo,
   sushirestaurant,
   newssummarize,
   hl7chatbotinterface,

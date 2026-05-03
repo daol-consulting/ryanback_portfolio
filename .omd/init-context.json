@@ -1,0 +1,84 @@
+{
+  "schema": "omd.init-context/v1",
+  "created_at": "2026-04-29T07:28:40.509Z",
+  "reference_id": "vercel",
+  "description": "Clean white minimal portfolio. Point color #10367D. Modern typography, generous spacing, subtle borders and soft shadows. Remove heavy dark theme. No hero 3D effects. Prefer consistent components: section headings, white cards w/ blue-100 borders, tag chips, and primary CTA buttons. Microcopy: concise, confident.",
+  "delta_set": {
+    "axes": {
+      "color.saturation_pct": {
+        "value": -10,
+        "rangeUnion": [
+          -10,
+          0
+        ],
+        "sources": [
+          "minimal",
+          "minimal",
+          "minimal"
+        ]
+      },
+      "radius_px": {
+        "value": -4,
+        "rangeUnion": [
+          -4,
+          0
+        ],
+        "sources": [
+          "minimal",
+          "minimal",
+          "minimal"
+        ]
+      },
+      "shadow.depth": {
+        "value": -2,
+        "rangeUnion": [
+          -2,
+          0
+        ],
+        "sources": [
+          "minimal",
+          "minimal",
+          "minimal"
+        ]
+      }
+    },
+    "voiceHints": [
+      "short sentences",
+      "no exclamations"
+    ],
+    "unresolved": [],
+    "warnings": [
+      "soft ↔ bold: use \"primarily <kw>\" or \"very <kw>\" to pick a winner"
+    ],
+    "droppedKeywords": [
+      {
+        "keyword": "soft",
+        "reason": "conflicts with bold"
+      },
+      {
+        "keyword": "bold",
+        "reason": "conflicts with soft"
+      }
+    ],
+    "matchedKeywords": [
+      {
+        "keyword": "minimal",
+        "modifier": 1,
+        "matchedAs": "synonym",
+        "synonymSource": "clean"
+      },
+      {
+        "keyword": "minimal",
+        "modifier": 1,
+        "matchedAs": "direct"
+      },
+      {
+        "keyword": "minimal",
+        "modifier": 1,
+        "matchedAs": "synonym",
+        "synonymSource": "modern"
+      }
+    ]
+  },
+  "deprecated_from": null
+}

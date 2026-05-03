@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "design_md_hash": "4aebe5d4dcb0",
+  "targets": {
+    "CLAUDE.md": {
+      "managed_hash": "672475c77b07",
+      "last_synced": "2026-04-29T07:22:47.254Z"
+    },
+    "AGENTS.md": {
+      "managed_hash": "be71c8d154c9",
+      "last_synced": "2026-04-29T07:22:47.257Z"
+    },
+    ".cursor/rules/omd-design.mdc": {
+      "managed_hash": "fd8e11a01651",
+      "last_synced": "2026-04-29T07:22:47.257Z"
+    }
+  }
+}

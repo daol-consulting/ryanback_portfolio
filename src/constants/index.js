@@ -12,40 +12,34 @@ import {
     nodejs,
     mongodb,
     git,
-    figma,
-    threejs,
-    sait,
-    nomad,
-    wavemakers,
-    linkedin,
     oracledb,
     python,
     java,
     flutter,
-    proplan,
-    hl7chatbotinterface,
-    portfolio,
-    sushirestaurant,
-    newssummarize,
-
+    vercel,
   } from "../assets";
-  
-  export const navLinks = [
+import skillGoogleAdsLocal from "../assets/skill-icons/google-ads.svg";
+import skillGoogleAnalyticsLocal from "../assets/skill-icons/google-analytics.svg";
+import skillMetaLocal from "../assets/skill-icons/meta-brand.svg";
+import skillOracleLocal from "../assets/skill-icons/oracle-brand.svg";
+import skillShopifyLocal from "../assets/skill-icons/shopify-color.svg";
+
+export const navLinks = [
     {
       id: "about",
       title: "About",
     },
     {
-      id: "experience",
-      title: "Experienced",
+      id: "career",
+      title: "Career",
     },
     {
-      id: "works",
-      title: "Works",
+      id: "projects",
+      title: "Projects",
     },
     {
       id: "connect",
-      title: "Connect with me",
+      title: "Connect",
     },
     {
       id: "contact",
@@ -55,289 +49,121 @@ import {
   
   const services = [
     {
-      title: "Full-Stack Developer",
+      title: "Frontend Specialist",
       icon: web,
     },
     {
-      title: "Software Developer",
+      title: "Full-Stack Engineer",
       icon: backend,
     },
     {
-      title: "Mobile Developer",
+      title: "UI Performance Engineer",
       icon: mobile,
     },
     {
-      title: "AI Developer",
+      title: "AI Product Builder",
       icon: ai,
     },
   ];
   
-  const technologies = [
-    {
-      name: "HTML 5",
-      icon: html,
-    },
-    {
-      name: "CSS 3",
-      icon: css,
-    },
-    {
-      name: "JavaScript",
-      icon: javascript,
-    },
-    {
-      name: "React JS",
-      icon: reactjs,
-    },
-    {
-      name: "Oracle DB",
-      icon: oracledb,
-    },
-    {
-      name: "Tailwind CSS",
-      icon: tailwind,
-    },
-    {
-      name: "Node JS",
-      icon: nodejs,
-    },
-    {
-      name: "MongoDB",
-      icon: mongodb,
-    },
-    {
-      name: "Three JS",
-      icon: threejs,
-    },
-    {
-      name: "git",
-      icon: git,
-    },
-    
-    {
-      name: "python",
-      icon: python,
-    },
-    
-    {
-      name: "java",
-      icon: java,
-    },
-    {
-      name: "flutter",
-      icon: flutter,
-    },
-  ];
-  
-  const experiences = [
-    {
-      title: "Software Development Diploma",
-      company_name: "Southern Alberta Institute of Technology (SAIT)",
-      icon: sait, 
-      iconBg: "#383E56",
-      date: "Sept 2022 - April 2024",
-      points: [
-        "Engaged in intensive coursework covering Java, Python, and web development fundamentals.",
-        "Completed various projects focusing on software development principles and best practices.",
-        "Gained a strong understanding of object-oriented programming and data structures.",
-        "Collaborated on team projects, enhancing skills in team communication and project management.",
-      ],
-    },
-    {
-      title: "LinkedIn Learning Courses",
-      company_name: "LinkedIn",
-      icon: linkedin, 
-      iconBg: "#E6DEDD",
-      date: "2022 Dec, 2023 March",
-      points: [
-        "Completed 'AWS Essential Training for Developers' on LinkedIn Learning, acquiring skills in cloud computing, AWS services, and cloud architecture.",
-        "Gained practical knowledge in deploying and managing applications on the AWS platform.",
-        "Studied 'GitHub Essential Training', enhancing my understanding of version control, repositories, branches, and collaboration using GitHub.",
-        "Applied the learned concepts in personal and academic projects, improving source code management and team collaboration.",
-      ],
-    },
-    {
-      title: "Wavemakers Experiential Learning Program",
-      company_name: "Capstone Project",
-      icon: wavemakers, 
-      iconBg: "#383E56", 
-      date: "Nov 2023",
-      points: [
-        "Completed an intensive 8-week experiential learning program focused on developing future-proof skills for the workplace.",
-        "Collaborated with team 'YellowWave' to conceptualize and present 'Green-Space Ease', a mobile app designed to make greenspaces more accessible.",
-        "Championed the cause of good health and well-being, aiming to assist individuals struggling with mental health issues or disabilities affecting mobility.",
-        "Developed the project under the government of Canada's innovative work-integrated learning initiative, acquiring practical experience in teamwork and project management.",
-        "The website: https://www.wavemakers.network/",
-      ],
-    },
-    {
-      title: "Flutter Development Journey",
-      company_name: "Online Learning via Nomad Coders",
-      icon: nomad,
-      iconBg: "#E6DEDD", 
-      date: "Aug 2023 - Present",
-      points: [
-        "Engaged in a comprehensive Flutter course with Nomad Coders, covering Widget lifecycles, state management, data fetching, navigation, and UI design.",
-        "Developed a webtoon application using Flutter, applying practical skills in UI development and local storage integration.",
-        "Gained a deep understanding of Flutter's rich set of Widgets and how to use them to create interactive user interfaces.",
-        "Learned and implemented advanced Flutter concepts such as managing app state, navigating between screens, and handling asynchronous data with Futures.",
-        "Explored efficient coding practices with shortcuts and extensions to streamline development and maintenance of Flutter apps."
-      ],
-    },
-    
-  ];
-  
-  const connect = [
-    {
-      connect:
-        "Passionate SAIT Software Development student with a focus on AI development. Let's connect and explore the tech landscape together!",
-      name: "ryan-back",
-      company: "LinkedIn",
-      image: "src/assets/company/linkedin.webp",
-      socialLink:"https://www.linkedin.com/in/ryan-back/",
-    },
-    {
-      connect:
-        "Aspiring AI developer showcasing diverse projects from 3D environments to web apps. Excited to collaborate and learn in the coding world!",
-      name: "ho0405",
-      company: "Github",
-      image: "src/assets/github.webp",
-      socialLink:"https://github.com/ho0405",
-    },
-    {
-      connect:
-        "Join me in the world of coding! I'm a SAIT Software Development student, sharing code and glimpses of daily life. Let's connect personally—follow for coding adventures and more! 🚀👩‍💻",
-      name: "ryanback45",
-      company: "Instagram",
-      image: "src/assets/company/instagram.webp",
-      socialLink:"https://www.instagram.com/ryanback45/",
-    },
-  ];
-  
-  const projects = [
-    {
-      name: "Pro Plan (Task manager)",
-      description:
-        "Pro Plan is a cutting-edge web application developed using React as part of the SAIT web development project. This powerful tool empowers teams to enhance collaboration, streamline task management, and visualize project progress effortlessly.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "vercel",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "firebase",
-          color: "orange-text-gradient",
-        },
-      ],
-      image: proplan,
-      website: "https://cprg-306-final-project.vercel.app/",
-      source_code_link: "https://github.com/Sergei137/cprg-306-Final-Project",
-    },
-    {
-      name: "3D Portfolio",
-      description:
-        "Step into a new dimension with the 3D Personal Portfolio – a groundbreaking showcase of skills and achievements crafted with three.js, Vite, and Tailwind CSS. This portfolio isn't just a static display; it's a dynamic and immersive experience designed to captivate visitors and provide an unparalleled insight into your creative journey.",
-      tags: [
-        {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "three.js",
-          color: "green-text-gradient",
-        },
-        {
-          name: "tailwindcss",
-          color: "pink-text-gradient",
-        },
-        {
-          name: "vite.js",
-          color: "orange-text-gradient",
-        }
-      ],
-      image: portfolio,
-      source_code_link: "https://github.com/ho0405/3D_portfolio",
-    },
-    {
-      name: "Sushi Restaurant",
-      description:
-          "Indulge in a culinary adventure with 'Sushi Restaurant,' an innovative mobile app crafted using Flutter. Designed to function seamlessly on both Android and iOS, this app revolutionizes the sushi dining experience. Dive into intuitive menu pages, customize your order, and enjoy the convenience of an integrated 'add to cart' feature.",
-      tags: [
-          {
-              name: "flutter",
-              color: "blue-text-gradient",
-          },
-          {
-              name: "dart",
-              color: "green-text-gradient",
-          },
-      ],
-      image: sushirestaurant,
-      source_code_link: "https://github.com/ho0405/sushi_resturant/",
-  },
-  {
-    name: "News Summarizer & Sentiment Analyzer",
-    description:
-        "Empower your news reading experience with 'News Summarizer & Sentiment Analyzer,' a comprehensive tool developed in Python and PyQt5. This application is designed to simplify staying informed by summarizing news articles, performing sentiment analysis with TextBlob, and offering translation to Korean using the Google Cloud Translation API. Initially developed with Tkinter, it was transitioned to PyQt5 to ensure smooth operation across all platforms, including macOS. Created to save time and enhance comprehension for users, including a personal touch for my mom to access global news in her native language.",
-    tags: [
-        {
-            name: "python",
-            color: "green-text-gradient",
-        },
-        {
-            name: "pyqt5",
-            color: "orange-text-gradient",
-        },
-        {
-            name: "textblob",
-            color: "pink-text-gradient",
-        },
-        {
-            name: "google cloud translation",
-            color: "blue-text-gradient",
-        },
-    ],
-    image: newssummarize,
-    source_code_link: "https://github.com/ho0405/Summarize-News-Articles",
-},
+  /** Skillicons.dev — branded color SVG tiles (theme=light matches site canvas). https://skillicons.dev */
+  const skillIconAsset = (slug) =>
+    `https://skillicons.dev/icons?i=${slug}&theme=light`;
 
-    {
-      name: "HL7 Converter and Chatbot Interface",
-    description: "Dive into the world of healthcare data interchange with our capstone project, the HL7 Converter and Chatbot Interface. This innovative software solution leverages the robust Flask backend and Python's Tesseract OCR for efficient conversion of PDF documents into HL7 format, facilitating seamless data sharing among various healthcare information systems. With a sleek front-end designed using React JS, users can experience intuitive interactions and easy navigation. The project also integrates Firebase for authentication, ensuring secure access and user management, alongside a custom chatbot powered by botpenguin for real-time assistance.",
-    tags: [
-    {
-      name: "flask",
-      color: "orange-text-gradient"
-    },
-    {
-      name: "react",
-      color: "blue-text-gradient"
-    },
-    {
-      name: "firebase",
-      color: "green-text-gradient"
-    },
-    {
-      name: "python tesseract",
-      color: "pink-text-gradient"
-    },
-    {
-      name: "pyteserract",
-      color: "purple-text-gradient"
-    }
-  ],
-  image: hl7chatbotinterface,
-  source_code_link: "https://github.com/ho0405/frontend_hl7"
-    },
-    
+  const SKILL_ICON_BY_NAME = {
+    "HTML 5": skillIconAsset("html"),
+    "CSS 3": skillIconAsset("css"),
+    JavaScript: skillIconAsset("javascript"),
+    TypeScript: skillIconAsset("typescript"),
+    "React JS": skillIconAsset("react"),
+    "Oracle DB": skillOracleLocal,
+    "Tailwind CSS": skillIconAsset("tailwind"),
+    "Node JS": skillIconAsset("nodejs"),
+    "Next.js": skillIconAsset("nextjs"),
+    MongoDB: skillIconAsset("mongodb"),
+    "Firebase / Firestore": skillIconAsset("firebase"),
+    git: skillIconAsset("git"),
+    "GitHub Actions (CI/CD)": skillIconAsset("githubactions"),
+    Vercel: skillIconAsset("vercel"),
+    Shopify: skillShopifyLocal,
+    "PostgreSQL / Supabase": skillIconAsset("supabase"),
+    "Jest / RTL": skillIconAsset("jest"),
+    Python: skillIconAsset("python"),
+    Java: skillIconAsset("java"),
+    Flutter: skillIconAsset("flutter"),
+    "Google Ads": skillGoogleAdsLocal,
+    "Google Analytics (GA4)": skillGoogleAnalyticsLocal,
+    "Meta Ads": skillMetaLocal,
+  };
+
+  /** Per-category chip shells so pills read as tinted, icon colors pop (skill icons are full-color SVGs). */
+  export const SKILL_GROUP_PILL_SURFACE = {
+    frontend:
+      "border-sky-200/95 bg-gradient-to-br from-white via-sky-50/90 to-blue-50/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] hover:from-white hover:via-sky-50 hover:to-blue-50/95",
+    backend:
+      "border-emerald-200/95 bg-gradient-to-br from-white via-emerald-50/90 to-teal-50/70 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] hover:from-white hover:via-emerald-50 hover:to-teal-50/92",
+    tools:
+      "border-violet-200/95 bg-gradient-to-br from-white via-violet-50/88 to-purple-50/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] hover:from-white hover:via-violet-50 hover:to-purple-50/90",
+    marketing:
+      "border-amber-200/95 bg-gradient-to-br from-white via-amber-50/90 to-orange-50/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.95)] hover:from-white hover:via-amber-50 hover:to-orange-50/90",
+  };
+
+  /** @param {{ name: string; icon: string }[]} rows */
+  const withSkillIcons = (rows) =>
+    rows.map((tech) => ({
+      ...tech,
+      skillIcon: SKILL_ICON_BY_NAME[tech.name] ?? tech.icon,
+    }));
+
+  const frontendSkillsRaw = [
+    { name: "CSS 3", icon: css },
+    { name: "Flutter", icon: flutter },
+    { name: "HTML 5", icon: html },
+    { name: "JavaScript", icon: javascript },
+    { name: "Jest / RTL", icon: javascript },
+    { name: "Next.js", icon: reactjs },
+    { name: "React JS", icon: reactjs },
+    { name: "Tailwind CSS", icon: tailwind },
+    { name: "TypeScript", icon: typescript },
   ];
-  
-  export { services, technologies, experiences, connect, projects };
+
+  const backendSkillsRaw = [
+    { name: "Firebase / Firestore", icon: mongodb },
+    { name: "Java", icon: java },
+    { name: "MongoDB", icon: mongodb },
+    { name: "Node JS", icon: nodejs },
+    { name: "Oracle DB", icon: oracledb },
+    { name: "PostgreSQL / Supabase", icon: oracledb },
+    { name: "Python", icon: python },
+  ];
+
+  const toolsSkillsRaw = [
+    { name: "GitHub Actions (CI/CD)", icon: git },
+    { name: "git", icon: git },
+    { name: "Shopify", icon: web },
+    { name: "Vercel", icon: vercel },
+  ];
+
+  const marketingSkillsRaw = [
+    { name: "Google Ads", icon: web },
+    { name: "Google Analytics (GA4)", icon: web },
+    { name: "Meta Ads", icon: web },
+  ];
+
+  const sortByName = (a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" });
+
+  /**
+   * Skills panel: ordered categories with alphabetized items inside each (Three.js intentionally omitted).
+   * @type {Array<{ id: string; title: string; items: Array<{ name: string; icon: string; skillIcon: string }>}>}
+   */
+  export const skillCategoryGroups = [
+    { id: "frontend", title: "Frontend", items: withSkillIcons([...frontendSkillsRaw].sort(sortByName)) },
+    { id: "backend", title: "Backend", items: withSkillIcons([...backendSkillsRaw].sort(sortByName)) },
+    { id: "tools", title: "Tools", items: withSkillIcons([...toolsSkillsRaw].sort(sortByName)) },
+    { id: "marketing", title: "Marketing", items: withSkillIcons([...marketingSkillsRaw].sort(sortByName)) },
+  ];
+
+  /** Flat list — legacy callers; excludes Three JS as before */
+  export const technologies = skillCategoryGroups.flatMap((cat) => cat.items);
+
+  export { services };
