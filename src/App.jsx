@@ -853,18 +853,18 @@ const App = () => {
                 <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] uppercase text-brand-deep">
                   Project
                 </p>
-                <h3 className="mt-2 line-clamp-3 min-h-[4.5rem] font-display text-[17px] sm:text-[18px] leading-snug font-semibold text-slate-900 mobile-safe-text break-words">
+                <h3 className="mt-2 max-md:line-clamp-none md:line-clamp-3 min-h-[4.5rem] font-display text-[17px] sm:text-[18px] leading-snug font-semibold text-slate-900 mobile-safe-text break-words">
                   {project.name}
                 </h3>
                 {project.roleLine ? (
-                  <p className="mt-2 line-clamp-2 min-h-[2.5rem] text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-deep leading-snug">
+                  <p className="mt-2 max-md:line-clamp-none md:line-clamp-2 min-h-[2.5rem] text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-deep leading-snug">
                     {project.roleLine}
                   </p>
                 ) : (
                   <div className="mt-2 min-h-[2.5rem]" aria-hidden />
                 )}
                 {project.impactLine ? (
-                  <p className="mt-1.5 line-clamp-2 min-h-[2.5rem] text-[12px] sm:text-[13px] leading-snug text-slate-700 border-l-2 border-brand-primary/40 pl-2.5 py-0.5">
+                  <p className="mt-1.5 max-md:line-clamp-none md:line-clamp-2 min-h-[2.5rem] text-[12px] sm:text-[13px] leading-snug text-slate-700 border-l-2 border-brand-primary/40 pl-2.5 py-0.5">
                     {project.impactLine}
                   </p>
                 ) : (
@@ -898,7 +898,7 @@ const App = () => {
                   )}
                 </div>
                 <div className="mt-3 flex min-h-0 flex-1 flex-col">
-                  <p className="line-clamp-5 text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text">
+                  <p className="max-md:line-clamp-none md:line-clamp-5 text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text">
                     {projectBlurb}
                   </p>
                   <div className="mt-auto flex flex-col gap-3 pt-3">
