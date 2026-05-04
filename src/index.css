@@ -134,9 +134,10 @@ body {
   transform: translateY(0);
 }
 
+/* Do not transition `transform` here: cards use Framer `whileHover` translateY
+   (ScrollRevealItem hoverLift). CSS transform transitions fight Motion and read as flicker. */
 .hover-lift-card {
   transition:
-    transform 220ms ease,
     box-shadow 220ms ease,
     border-color 220ms ease;
 }

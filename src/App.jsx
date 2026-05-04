@@ -9,6 +9,7 @@ import SkillStrengthThemesMobileCarousel, {
   SkillStrengthThemeCard,
 } from "./components/SkillStrengthThemesMobileCarousel";
 import ScrollRevealItem from "./components/ui/ScrollRevealItem";
+import ProjectDemoVideo from "./components/ui/ProjectDemoVideo";
 import { FadeContent, GlareHover, Magnet } from "./react-bits";
 import { skillCategoryGroups, SKILL_GROUP_PILL_SURFACE } from "./constants";
 import {
@@ -821,7 +822,7 @@ const App = () => {
           {/* Align with Skills: inset from the left on large screens (lg:ml-auto). */}
           <div className="max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-auto lg:mr-0">
             <EditorialSectionHeading kicker="Selected work" title="Projects" reverse />
-            <div className="mt-6 sm:mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5 xl:gap-6">
+            <div className="mt-6 sm:mt-8 grid grid-cols-1 items-stretch md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5 xl:gap-6">
             {projects.map((project, index) => {
               const n = projects.length;
               const isLast = index === n - 1;
@@ -846,70 +847,94 @@ const App = () => {
                 delay={index * 0.07}
                 y={18}
                 x={index % 2 === 0 ? -8 : 8}
-                className={`${glassPanelClass} hover-lift-card min-w-0${orphanAlign}`}
+                className={`${glassPanelClass} hover-lift-card flex h-full min-h-[26rem] min-w-0 flex-col sm:min-h-[28rem]${orphanAlign}`}
                 hoverLift={4}
               >
                 <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] uppercase text-brand-deep">
                   Project
                 </p>
-                <h3 className="mt-2 font-display text-[17px] sm:text-[18px] leading-snug font-semibold text-slate-900 mobile-safe-text break-words">
+                <h3 className="mt-2 line-clamp-3 min-h-[4.5rem] font-display text-[17px] sm:text-[18px] leading-snug font-semibold text-slate-900 mobile-safe-text break-words">
                   {project.name}
                 </h3>
                 {project.roleLine ? (
-                  <p className="mt-2 text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-deep leading-snug">
+                  <p className="mt-2 line-clamp-2 min-h-[2.5rem] text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-deep leading-snug">
                     {project.roleLine}
                   </p>
-                ) : null}
+                ) : (
+                  <div className="mt-2 min-h-[2.5rem]" aria-hidden />
+                )}
                 {project.impactLine ? (
-                  <p className="mt-1.5 text-[12px] sm:text-[13px] leading-snug text-slate-700 border-l-2 border-brand-primary/40 pl-2.5 py-0.5">
+                  <p className="mt-1.5 line-clamp-2 min-h-[2.5rem] text-[12px] sm:text-[13px] leading-snug text-slate-700 border-l-2 border-brand-primary/40 pl-2.5 py-0.5">
                     {project.impactLine}
                   </p>
-                ) : null}
-                {project.image ? (
-                  <div className="mt-3 overflow-hidden rounded-xl border border-brand-light/80">
-                    <motion.img
-                      src={project.image}
-                      alt={project.name}
-                      className="w-full h-[min(140px,36vw)] min-h-[120px] sm:h-[150px] sm:min-h-0 object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      whileHover={reduceMotion ? undefined : { scale: 1.02 }}
-                      transition={{ duration: 0.35, ease: motionEase }}
-                    />
-                  </div>
-                ) : null}
-                <p className="mt-3 text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text">{projectBlurb}</p>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag.name}
-                      className="inline-flex items-center px-2.5 py-1 rounded-full border border-brand-light bg-brand-chip text-brand-deep text-[11px] font-semibold"
-                    >
-                      #{tag.name}
-                    </span>
-                  ))}
+                ) : (
+                  <div className="mt-1.5 min-h-[2.5rem]" aria-hidden />
+                )}
+                <div
+                  className={`mt-3 h-[136px] shrink-0 overflow-hidden rounded-xl border border-brand-light/80 sm:h-[156px] ${
+                    project.preview_video
+                      ? "bg-slate-950"
+                      : project.image
+                        ? "bg-brand-chip/70"
+                        : "bg-gradient-to-br from-brand-surface to-brand-chip/90"
+                  }`}
+                >
+                  {project.preview_video ? (
+                    <ProjectDemoVideo src={project.preview_video} title={project.name} />
+                  ) : project.image ? (
+                    <div className="flex h-full w-full items-center justify-center p-2 sm:p-2.5">
+                      <motion.img
+                        src={project.image}
+                        alt={project.name}
+                        className="max-h-full max-w-full object-contain object-center"
+                        loading="lazy"
+                        decoding="async"
+                        whileHover={reduceMotion ? undefined : { scale: 1.015 }}
+                        transition={{ duration: 0.35, ease: motionEase }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-full w-full" aria-hidden />
+                  )}
                 </div>
-                <div className="mt-3.5 flex flex-col xs:flex-row flex-wrap gap-2">
-                  {externalUrl ? (
-                    <a
-                      href={externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-10 flex-1 xs:flex-none items-center justify-center px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-semibold border border-brand-light text-brand-deep bg-white hover:bg-brand-chip transition active:scale-[0.99]"
-                    >
-                      {isAppStore ? "Download on App Store" : "Live demo"}
-                    </a>
-                  ) : null}
-                  {typeof project.source_code_link === "string" && project.source_code_link.trim() ? (
-                    <a
-                      href={project.source_code_link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-10 flex-1 xs:flex-none items-center justify-center text-white px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-semibold hover:opacity-90 transition bg-brand-primary active:scale-[0.99]"
-                    >
-                      View GitHub
-                    </a>
-                  ) : null}
+                <div className="mt-3 flex min-h-0 flex-1 flex-col">
+                  <p className="line-clamp-5 text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text">
+                    {projectBlurb}
+                  </p>
+                  <div className="mt-auto flex flex-col gap-3 pt-3">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag.name}
+                          className="inline-flex items-center px-2.5 py-1 rounded-full border border-brand-light bg-brand-chip text-brand-deep text-[11px] font-semibold"
+                        >
+                          #{tag.name}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex flex-col flex-wrap gap-2 xs:flex-row">
+                      {externalUrl ? (
+                        <a
+                          href={externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-10 flex-1 xs:flex-none items-center justify-center px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-semibold border border-brand-light text-brand-deep bg-white hover:bg-brand-chip transition active:scale-[0.99]"
+                        >
+                          {isAppStore ? "Download on App Store" : "Live demo"}
+                        </a>
+                      ) : null}
+                      {typeof project.source_code_link === "string" && project.source_code_link.trim() ? (
+                        <a
+                          href={project.source_code_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex min-h-10 flex-1 xs:flex-none items-center justify-center text-white px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-semibold hover:opacity-90 transition bg-brand-primary active:scale-[0.99]"
+                        >
+                          View GitHub
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
                 </div>
               </ScrollRevealItem>
               );

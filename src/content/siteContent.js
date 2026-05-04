@@ -3,7 +3,13 @@
  * Replace this file when you paste your real positions, projects, education, and links.
  * App and legacy section components import from here — not from constants.
  */
-import { dontgobrokePromo, hl7chatbotinterface, portfolio, proplan, web } from "../assets";
+import {
+  daolInvoiceAutomationWorkflow,
+  dontgobrokePromo,
+  hl7chatbotinterface,
+  portfolio,
+  web,
+} from "../assets";
 import careerCraLogo from "../assets/career-cra-logo.png";
 import careerDaolLogo from "../assets/career-daol-logo.png";
 import careerEmpoweredFuturesLogo from "../assets/career-empowered-futures-logo.png";
@@ -329,6 +335,7 @@ export const skillStrengthThemes = [
  *   stack: string[];
  *   tags: Array<{ name: string; color: string }>;
  *   image?: string | null;
+ *   preview_video?: string; // public URL e.g. /videos/foo.mp4 — optional demo clip in project card
  *   source_code_link: string; // empty when no public repo (e.g. employer-owned, ads-only)
  *   demo_link?: string;
  *   readme_link?: string;
@@ -358,7 +365,7 @@ export const projects = [
       { name: "real-time", color: "pink-text-gradient" },
       { name: "erp", color: "orange-text-gradient" },
     ],
-    image: proplan,
+    image: null,
     source_code_link: "",
     roleLine: "Full-stack co-op · production ERP frontend and data-heavy operator flows.",
     impactLine:
@@ -411,6 +418,7 @@ export const projects = [
       { name: "ocr-ai", color: "orange-text-gradient" },
     ],
     image: hl7chatbotinterface,
+    preview_video: "/videos/chaeback-demo.mp4",
     source_code_link: PROFILE_LINKS.github,
     roleLine: "Owner-build · full-stack product (React · Supabase) from ingestion UX to persistence.",
     impactLine: "Receipt OCR → categorized transactions aimed at shrinking manual bookkeeping time per user.",
@@ -485,6 +493,7 @@ export const projects = [
       { name: "desktop", color: "pink-text-gradient" },
     ],
     image: web,
+    preview_video: "/videos/peekaboo.mp4",
     source_code_link: "https://github.com/ho0405/tranparent-browser",
     demo_link: "https://peekaboo-daol.vercel.app/",
     roleLine: "Peekaboo — Electron desktop app (tranparent-browser) plus Next.js product site (peekaboo-landing · Vercel).",
@@ -555,7 +564,7 @@ export const projects = [
       { name: "make", color: "blue-text-gradient" },
       { name: "billing", color: "orange-text-gradient" },
     ],
-    image: hl7chatbotinterface,
+    image: daolInvoiceAutomationWorkflow,
     source_code_link: PROFILE_LINKS.github,
     roleLine: "Renewal-day invoicing — Gmail + Google Docs driven by Make and n8n for yearly subscriptions.",
     impactLine: "Subscription invoices dispatch on schedule; operators are not chained to calendar reminders and manual sends.",
