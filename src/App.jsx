@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -141,6 +141,75 @@ const App = () => {
   });
   const reduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll();
+  const projectGridRef = useRef(null);
+  const projectFloorsKey = projects.map((p) => p.slug ?? p.name).join("|");
+
+  const syncProjectCardFloor = useCallback(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const grid = projectGridRef.current;
+        if (!grid) return;
+        grid.style.removeProperty("--project-card-min-h");
+        const nodes = [...grid.querySelectorAll("[data-project-card]")];
+        if (nodes.length === 0) return;
+        void grid.offsetHeight;
+        const max = Math.max(...nodes.map((node) => Math.max(node.offsetHeight, node.getBoundingClientRect().height)), 0);
+        if (max > 0) grid.style.setProperty("--project-card-min-h", `${max}px`);
+      });
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    const grid = projectGridRef.current;
+    if (!grid) return;
+
+    let debounceId = null;
+    const scheduleSync = () => {
+      window.clearTimeout(debounceId);
+      debounceId = window.setTimeout(() => syncProjectCardFloor(), 24);
+    };
+
+    syncProjectCardFloor();
+
+    const ro = new ResizeObserver(() => scheduleSync());
+    ro.observe(grid);
+    [...grid.querySelectorAll("[data-project-card]")].forEach((node) => ro.observe(node));
+
+    window.addEventListener("resize", scheduleSync);
+    window.addEventListener("load", scheduleSync, { once: true });
+
+    let fontsCancelled = false;
+    if (document.fonts && typeof document.fonts.ready?.then === "function") {
+      document.fonts.ready.then(() => {
+        if (!fontsCancelled) scheduleSync();
+      });
+    }
+
+    const lateSyncId = window.setTimeout(() => scheduleSync(), 360);
+
+    const projectsSection = document.getElementById("projects");
+    let io;
+    if (projectsSection && typeof IntersectionObserver !== "undefined") {
+      io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) scheduleSync();
+        },
+        { root: null, rootMargin: "0px 0px 12% 0px", threshold: [0, 0.08] }
+      );
+      io.observe(projectsSection);
+    }
+
+    return () => {
+      fontsCancelled = true;
+      window.clearTimeout(lateSyncId);
+      window.clearTimeout(debounceId);
+      ro.disconnect();
+      window.removeEventListener("resize", scheduleSync);
+      window.removeEventListener("load", scheduleSync);
+      if (io) io.disconnect();
+      grid.style.removeProperty("--project-card-min-h");
+    };
+  }, [projectFloorsKey, syncProjectCardFloor]);
 
   const navigateToSection = useCallback((id, { instant = false } = {}) => {
     const el = document.getElementById(id);
@@ -822,15 +891,14 @@ const App = () => {
           {/* Align with Skills: inset from the left on large screens (lg:ml-auto). */}
           <div className="max-w-full xl:max-w-6xl w-full min-w-0 mx-auto lg:mx-0 lg:ml-auto lg:mr-0">
             <EditorialSectionHeading kicker="Selected work" title="Projects" reverse />
-            <div className="mt-6 sm:mt-8 grid grid-cols-1 items-stretch md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5 xl:gap-6">
+            <div
+              ref={projectGridRef}
+              className="project-cards-grid mt-6 sm:mt-8 grid grid-cols-1 items-stretch md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5 xl:gap-6"
+            >
             {projects.map((project, index) => {
               const n = projects.length;
               const isLast = index === n - 1;
               let orphanAlign = "";
-              if (isLast && n % 2 === 1) {
-                orphanAlign +=
-                  " md:col-span-2 md:w-full md:max-w-2xl md:justify-self-center";
-              }
               if (isLast && n % 3 === 1) {
                 orphanAlign +=
                   " xl:col-span-3 xl:w-full xl:max-w-xl xl:justify-self-center";
@@ -843,62 +911,60 @@ const App = () => {
               return (
               <ScrollRevealItem
                 as="article"
+                data-project-card
                 key={project.slug ?? project.name}
                 delay={index * 0.07}
                 y={18}
                 x={index % 2 === 0 ? -8 : 8}
-                className={`${glassPanelClass} hover-lift-card flex h-full min-h-[26rem] min-w-0 flex-col sm:min-h-[28rem]${orphanAlign}`}
+                className={`${glassPanelClass} hover-lift-card flex h-full min-w-0 flex-col self-stretch${orphanAlign}`}
                 hoverLift={4}
               >
                 <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.16em] uppercase text-brand-deep">
                   Project
                 </p>
-                <h3 className="mt-2 max-md:line-clamp-none md:line-clamp-3 min-h-[4.5rem] font-display text-[17px] sm:text-[18px] leading-snug font-semibold text-slate-900 mobile-safe-text break-words">
+                <h3 className="mt-2 font-display text-[17px] sm:text-[18px] leading-snug font-semibold text-slate-900 mobile-safe-text break-words">
                   {project.name}
                 </h3>
                 {project.roleLine ? (
-                  <p className="mt-2 max-md:line-clamp-none md:line-clamp-2 min-h-[2.5rem] text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-deep leading-snug">
+                  <p className="mt-2 text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.12em] text-brand-deep leading-snug break-words">
                     {project.roleLine}
                   </p>
-                ) : (
-                  <div className="mt-2 min-h-[2.5rem]" aria-hidden />
-                )}
+                ) : null}
                 {project.impactLine ? (
-                  <p className="mt-1.5 max-md:line-clamp-none md:line-clamp-2 min-h-[2.5rem] text-[12px] sm:text-[13px] leading-snug text-slate-700 border-l-2 border-brand-primary/40 pl-2.5 py-0.5">
+                  <p className="mt-1.5 text-[12px] sm:text-[13px] leading-snug text-slate-700 border-l-2 border-brand-primary/40 pl-2.5 py-0.5 break-words">
                     {project.impactLine}
                   </p>
-                ) : (
-                  <div className="mt-1.5 min-h-[2.5rem]" aria-hidden />
-                )}
-                <div
-                  className={`mt-3 h-[136px] shrink-0 overflow-hidden rounded-xl border border-brand-light/80 sm:h-[156px] ${
-                    project.preview_video
-                      ? "bg-slate-950"
-                      : project.image
-                        ? "bg-brand-chip/70"
-                        : "bg-gradient-to-br from-brand-surface to-brand-chip/90"
-                  }`}
-                >
-                  {project.preview_video ? (
-                    <ProjectDemoVideo src={project.preview_video} title={project.name} />
-                  ) : project.image ? (
-                    <div className="flex h-full w-full items-center justify-center p-2 sm:p-2.5">
-                      <motion.img
-                        src={project.image}
-                        alt={project.name}
-                        className="max-h-full max-w-full object-contain object-center"
-                        loading="lazy"
-                        decoding="async"
-                        whileHover={reduceMotion ? undefined : { scale: 1.015 }}
-                        transition={{ duration: 0.35, ease: motionEase }}
+                ) : null}
+                {project.preview_video || project.image ? (
+                  <div
+                    className={`mt-3 h-[136px] shrink-0 overflow-hidden rounded-xl border border-brand-light/80 sm:h-[156px] ${
+                      project.preview_video ? "bg-slate-950" : "bg-brand-chip/70"
+                    }`}
+                  >
+                    {project.preview_video ? (
+                      <ProjectDemoVideo
+                        src={project.preview_video}
+                        title={project.name}
+                        onLayoutStable={syncProjectCardFloor}
                       />
-                    </div>
-                  ) : (
-                    <div className="h-full w-full" aria-hidden />
-                  )}
-                </div>
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center p-2 sm:p-2.5">
+                        <motion.img
+                          src={project.image}
+                          alt={project.name}
+                          className="max-h-full max-w-full object-contain object-center"
+                          loading="lazy"
+                          decoding="async"
+                          whileHover={reduceMotion ? undefined : { scale: 1.015 }}
+                          transition={{ duration: 0.35, ease: motionEase }}
+                          onLoad={syncProjectCardFloor}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ) : null}
                 <div className="mt-3 flex min-h-0 flex-1 flex-col">
-                  <p className="max-md:line-clamp-none md:line-clamp-5 text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text">
+                  <p className="text-[13px] sm:text-[14px] leading-[1.62] text-slate-600 mobile-safe-text break-words">
                     {projectBlurb}
                   </p>
                   <div className="mt-auto flex flex-col gap-3 pt-3">

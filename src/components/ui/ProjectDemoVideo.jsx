@@ -4,7 +4,7 @@ import { Play } from "lucide-react";
 /**
  * Demo clip: dark pre-play slate (not a poster image); hides after playback starts.
  */
-export default function ProjectDemoVideo({ src, title }) {
+export default function ProjectDemoVideo({ src, title, onLayoutStable }) {
   const [hasStarted, setHasStarted] = useState(false);
 
   const onPlaying = useCallback(() => {
@@ -31,6 +31,7 @@ export default function ProjectDemoVideo({ src, title }) {
         playsInline
         preload="metadata"
         onPlaying={onPlaying}
+        onLoadedMetadata={onLayoutStable}
         aria-label={`${title} demo video`}
       />
     </div>

@@ -551,8 +551,6 @@ export const projects = [
     name: "Subscription invoice automation (Make · n8n · Gmail · Google Docs)",
     period: "Jan 2025 — Present",
     context: "Studio · renewals · Google Workspace",
-    summary:
-      "Orchestration in Make.com and n8n that ties Gmail and Google Docs to annual subscriptions—each renewal date triggers the right invoice to go out automatically.",
     bullets: [
       "Google Docs for invoice/document generation; payloads and timing flow through automation instead of manual copy-paste.",
       "Gmail sends aligned to each client’s yearly subscription renewal—no forgetting the date or resending by hand.",

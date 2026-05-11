@@ -148,6 +148,11 @@ body {
   border-color: rgba(50, 130, 184, 0.4);
 }
 
+/* Projects: equal card heights — --project-card-min-h set on .project-cards-grid via layout effect */
+.project-cards-grid > [data-project-card] {
+  min-height: var(--project-card-min-h, unset);
+}
+
 .skill-pill {
   touch-action: manipulation;
   transition:
