@@ -1,43 +1,81 @@
-# 3D Portfolio
+# Ryan Back — Portfolio
 
-Welcome to my 3D portfolio project! This portfolio showcases my work and skills, in implementing Three.js with React and Tailwind CSS. The project includes a Connect page where you can find my social media handles.
+Personal portfolio site: React, Vite, Tailwind CSS, and light motion (Framer Motion, GSAP via scroll reveals). Content and tone follow the in-repo design spec (`DESIGN.md`).
 
-## Recent Changes
+**Live site:** [ryanback.vercel.app](https://ryanback.vercel.app)
 
-The latest changes were made to fix an issue on the Connect page where icons were not displaying properly. The commit with the message "fix it for connect page, that icons didn't show up" addresses this issue.
+## Features
 
-## Getting Started
+- Single-page layout: hero, about, skills, career, projects, contact
+- [AOS](https://michalsnik.github.io/aos/) scroll entrances on main content blocks (disabled when the user prefers reduced motion)
+- Sticky quick navigation and scroll-linked UI chrome
+- Contact form via [EmailJS](https://www.emailjs.com/) (keys live in `ContactSection.jsx`; move to env for production hardening)
+- Below-the-fold sections loaded with `React.lazy` and `Suspense` to keep the initial bundle smaller
+- Production build splits vendor chunks (`framer-motion`, `gsap`, `@emailjs/browser`, `lucide-react`) in `vite.config.js`
 
-Follow these steps to get started with the project:
+## Prerequisites
 
-1. **Clone the repository:**
+- Node.js 18+ recommended
+- npm (or pnpm/yarn if you adapt commands)
 
-   ```bash
-   git clone https://github.com/ho0405/3D_portfolio.git
-   cd 3D_portfolio
+## Getting started
 
-1.  Install dependencies:
+```bash
+git clone https://github.com/ho0405/3D_portfolio.git
+cd 3D_portfolio
 npm install
-
-2.  Run the development server:
 npm run dev
+```
 
-3.  Open your browser:
-Open your browser and navigate to http://localhost:3000 to view the portfolio.
+The dev server prints the local URL (Vite defaults to `http://localhost:5173`).
 
+| Script        | Description              |
+| ------------- | ------------------------ |
+| `npm run dev` | Start Vite dev server    |
+| `npm run build` | Production build to `dist/` |
+| `npm run preview` | Serve `dist` locally     |
+| `npm run lint` | ESLint (JS/JSX)          |
 
-## Project Structure
-src/ contains the main source code.
-public/ holds static assets like images and 3D models.
-vite.config.js is the Vite configuration file.
-tailwind.config.js contains the Tailwind CSS configuration.
-README.md provides detailed information about the project.
+## Project structure
 
-## Connect Page Issue
-If you encounter issues with the Connect page where icons are not displaying, make sure that you have properly configured the React Icons library. Check the conditions inside the ConnectCard component to match the social media platforms you are linking to.
+```
+src/
+├── App.jsx                 # Shell: scroll/nav state, hero timing, lazy section boundaries
+├── main.jsx                # React root + SW/cache cleanup for local dev
+├── index.css               # Global styles
+├── content/
+│   ├── siteContent.js      # Copy: career, projects, skills narrative, links
+│   └── heroCopy.js         # Hero rotating lines
+├── lib/
+│   └── siteTokens.js       # Shared layout classes and nav constants
+├── hooks/
+│   ├── useAos.js             # AOS init + refresh timing
+│   └── useProjectCardFloorSync.js   # Project grid equal-height sync
+├── utils/
+│   └── websiteHostname.js  # Career website label helper
+├── components/
+│   ├── sections/           # Page sections (Skills/Career/Projects/Contact are lazy-loaded)
+│   ├── site/               # Reusable headings, quick links, motion variants
+│   ├── ui/                 # AosBlock, scroll reveal, demo video, scroll-to-top
+│   ├── aceternity/         # Section backgrounds
+│   └── SkillStrengthThemesMobileCarousel.jsx
+├── react-bits/             # FadeContent, GlareHover, Magnet
+├── constants/              # Skill groups and pill surfaces (includes skill icons)
+└── assets/                 # Images, logos, fonts as imported modules
+```
+
+Branding and UI rules: see **`DESIGN.md`** at the repo root. Pending tweaks may appear in **`.omd/preferences.md`**.
+
+## Editing content
+
+- **Narrative, projects, career, links:** `src/content/siteContent.js`
+- **Hero lines:** `src/content/heroCopy.js`
+- **Layout tokens (section padding, glass card class, nav offsets):** `src/lib/siteTokens.js`
+
+## Deploy
+
+Compatible with static hosts (for example Vercel). Build output is `dist/` from `npm run build`. Configure the host to serve `index.html` for SPA routes if you add client-side routing later; this app is hash-friendly for section links (`#about`, `#projects`, etc.).
 
 ## Contributing
-Contributions are welcome! Feel free to open issues or pull requests to improve the project.
 
-### You can check this Website on here: https://ryanback.vercel.app
-<img width="1200" alt="portfolio" src="https://github.com/ho0405/3D_portfolio/assets/23023444/d0b98e76-4cbd-43be-8725-c2be77460cf4">
+Issues and pull requests are welcome. For UI changes, align with `DESIGN.md` first.

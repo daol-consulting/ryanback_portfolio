@@ -1,7 +1,7 @@
 /**
  * Portfolio narrative content (resume-backed).
  * Replace this file when you paste your real positions, projects, education, and links.
- * App and legacy section components import from here — not from constants.
+ * App and section components import from here — not from constants.
  */
 import {
   daolInvoiceAutomationWorkflow,

@@ -1,5 +1,4 @@
 import {
-  web,
   javascript,
   typescript,
   html,
@@ -94,14 +93,14 @@ const backendSkillsRaw = [
 const toolsSkillsRaw = [
   { name: "GitHub Actions (CI/CD)", icon: git },
   { name: "git", icon: git },
-  { name: "Shopify", icon: web },
+  { name: "Shopify", icon: javascript },
   { name: "Vercel", icon: vercel },
 ];
 
 const marketingSkillsRaw = [
-  { name: "Google Ads", icon: web },
-  { name: "Google Analytics (GA4)", icon: web },
-  { name: "Meta Ads", icon: web },
+  { name: "Google Ads", icon: javascript },
+  { name: "Google Analytics (GA4)", icon: javascript },
+  { name: "Meta Ads", icon: javascript },
 ];
 
 const sortByName = (a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" });

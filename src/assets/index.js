@@ -3,8 +3,6 @@ import aboutProfile from "./about-profile-3d.png";
 import daolInvoiceAutomationWorkflow from "./daol-invoice-automation-workflow.png";
 import dontgobrokePromo from "./dontgobroke-promo.png";
 import hl7chatbotinterface from "./hl7chatbotinterface.webp";
-import portfolio from "./portfolio.webp";
-import web from "./web.webp";
 
 import html from "./tech/html.webp";
 import css from "./tech/css.webp";
@@ -26,8 +24,6 @@ export {
   daolInvoiceAutomationWorkflow,
   dontgobrokePromo,
   hl7chatbotinterface,
-  portfolio,
-  web,
   html,
   css,
   javascript,
