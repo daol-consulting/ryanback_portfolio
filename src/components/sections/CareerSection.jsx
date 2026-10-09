@@ -109,7 +109,7 @@ export default function CareerSection() {
                               href={entry.company_website}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="mt-2.5 inline-flex max-w-full items-center rounded-full border border-brand-light/90 bg-brand-chip/90 px-2.5 py-1.5 text-[11px] font-semibold text-brand-deep hover:border-brand-primary/35 hover:bg-white transition-colors touch-manipulation [-webkit-tap-highlight-color:transparent]"
+                              className="mt-2.5 inline-flex min-h-10 max-w-full items-center rounded-full border border-brand-light/90 bg-brand-chip/90 px-3 py-1.5 text-[11px] font-semibold text-brand-deep hover:border-brand-primary/35 hover:bg-white transition-colors touch-manipulation [-webkit-tap-highlight-color:transparent]"
                             >
                               <span className="truncate">{websiteHostnameLabel(entry.company_website)}</span>
                             </a>

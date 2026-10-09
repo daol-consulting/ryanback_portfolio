@@ -2,20 +2,46 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/src/assets/tinylogo.svg" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
+    <title>%SEO_TITLE%</title>
+    <meta name="description" content="%SEO_DESCRIPTION%" />
+    <meta name="keywords" content="%SEO_KEYWORDS%" />
+    <meta name="author" content="Ryan Back" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="%SITE_URL%/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Ryan Back" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="%SEO_TITLE%" />
+    <meta property="og:description" content="%SEO_DESCRIPTION%" />
+    <meta property="og:image" content="%SEO_IMAGE%" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ryan Back, full-stack software engineer in Calgary" />
+    <meta property="profile:first_name" content="Ryan" />
+    <meta property="profile:last_name" content="Back" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="%SEO_TITLE%" />
+    <meta name="twitter:description" content="%SEO_DESCRIPTION%" />
+    <meta name="twitter:image" content="%SEO_IMAGE%" />
+
     <meta name="theme-color" content="#f4fbff" media="(prefers-color-scheme: light)" />
-    <meta
-      name="description"
-      content="Ryan Back — Full-stack software engineer in Calgary. Production ERP experience, bespoke client delivery, React/TypeScript, Firestore and Supabase. View projects and contact."
-    />
-    <title>Ryan Back · Full-Stack Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="/src/assets/tinylogo.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <script type="application/ld+json">%SEO_JSON_LD%</script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

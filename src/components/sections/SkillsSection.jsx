@@ -38,7 +38,7 @@ export default function SkillsSection() {
               {skillsNarrative.pitch}
             </p>
             <SkillStrengthThemesMobileCarousel themes={skillStrengthThemes} />
-            <div className="hidden md:grid w-full grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
+            <div className="hidden md:grid w-full grid-cols-2 gap-3 sm:gap-4">
               {skillStrengthThemes.map((theme) => (
                 <SkillStrengthThemeCard key={theme.title} theme={theme} />
               ))}

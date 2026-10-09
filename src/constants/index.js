@@ -19,6 +19,10 @@ import skillGoogleAnalyticsLocal from "../assets/skill-icons/google-analytics.sv
 import skillMetaLocal from "../assets/skill-icons/meta-brand.svg";
 import skillOracleLocal from "../assets/skill-icons/oracle-brand.svg";
 import skillShopifyLocal from "../assets/skill-icons/shopify-color.svg";
+import skillSanityLocal from "../assets/skill-icons/sanity.svg";
+import skillContentfulLocal from "../assets/skill-icons/contentful.svg";
+import skillAppsScriptLocal from "../assets/skill-icons/googleappsscript.svg";
+import skillChromeLocal from "../assets/skill-icons/googlechrome.svg";
 
 /** Skillicons.dev — branded color SVG tiles (theme=light matches site canvas). https://skillicons.dev */
 const skillIconAsset = (slug) => `https://skillicons.dev/icons?i=${slug}&theme=light`;
@@ -39,6 +43,10 @@ const SKILL_ICON_BY_NAME = {
   "GitHub Actions (CI/CD)": skillIconAsset("githubactions"),
   Vercel: skillIconAsset("vercel"),
   Shopify: skillShopifyLocal,
+  "Sanity CMS": skillSanityLocal,
+  "Contentful CMS": skillContentfulLocal,
+  "Google Apps Script": skillAppsScriptLocal,
+  "Chrome Extensions": skillChromeLocal,
   "PostgreSQL / Supabase": skillIconAsset("supabase"),
   "Jest / RTL": skillIconAsset("jest"),
   Python: skillIconAsset("python"),
@@ -81,6 +89,7 @@ const frontendSkillsRaw = [
 ];
 
 const backendSkillsRaw = [
+  { name: "Google Apps Script", icon: javascript },
   { name: "Firebase / Firestore", icon: mongodb },
   { name: "Java", icon: java },
   { name: "MongoDB", icon: mongodb },
@@ -91,6 +100,9 @@ const backendSkillsRaw = [
 ];
 
 const toolsSkillsRaw = [
+  { name: "Chrome Extensions", icon: javascript },
+  { name: "Contentful CMS", icon: javascript },
+  { name: "Sanity CMS", icon: javascript },
   { name: "GitHub Actions (CI/CD)", icon: git },
   { name: "git", icon: git },
   { name: "Shopify", icon: javascript },

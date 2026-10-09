@@ -42,6 +42,7 @@ export default function ProjectsSection() {
               const projectBlurb = project.summary ?? project.description ?? "";
               const externalUrl = project.demo_link ?? project.live_demo_link ?? null;
               const isAppStore = typeof externalUrl === "string" && externalUrl.includes("apps.apple.com");
+              const isChromeStore = typeof externalUrl === "string" && externalUrl.includes("chromewebstore.google.com");
 
               return (
                 <ScrollRevealItem
@@ -120,7 +121,7 @@ export default function ProjectsSection() {
                             rel="noopener noreferrer"
                             className="inline-flex min-h-10 flex-1 xs:flex-none items-center justify-center px-3 py-2 rounded-xl text-[12px] sm:text-[13px] font-semibold border border-brand-light text-brand-deep bg-white hover:bg-brand-chip transition active:scale-[0.99]"
                           >
-                            {isAppStore ? "Download on App Store" : "Live demo"}
+                            {isAppStore ? "Download on App Store" : isChromeStore ? "Add to Chrome" : "Live demo"}
                           </a>
                         ) : null}
                         {typeof project.source_code_link === "string" && project.source_code_link.trim() ? (

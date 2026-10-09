@@ -1,0 +1,63 @@
+import {defineField, defineType} from 'sanity'
+
+export const project = defineType({
+  name: 'project',
+  title: 'Project',
+  type: 'document',
+  fields: [
+    defineField({name: 'name', title: 'Name', type: 'string', validation: (rule) => rule.required()}),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {source: 'name', maxLength: 80},
+      validation: (rule) => rule.required(),
+    }),
+    defineField({name: 'featured', title: 'Featured', type: 'boolean', initialValue: false}),
+    defineField({name: 'period', title: 'Period', type: 'string'}),
+    defineField({name: 'context', title: 'Context', type: 'string'}),
+    defineField({name: 'roleLine', title: 'Role line', type: 'string'}),
+    defineField({name: 'impactLine', title: 'Impact line', type: 'text', rows: 2}),
+    defineField({name: 'summary', title: 'Summary', type: 'text', rows: 4}),
+    defineField({name: 'bullets', title: 'Bullets', type: 'array', of: [{type: 'text', rows: 2}]}),
+    defineField({name: 'stack', title: 'Stack', type: 'array', of: [{type: 'string'}], options: {layout: 'tags'}}),
+    defineField({
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {layout: 'tags'},
+      description: 'Shown as #tags on the card.',
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      fields: [defineField({name: 'alt', title: 'Alt text', type: 'string'})],
+    }),
+    defineField({
+      name: 'previewVideo',
+      title: 'Demo video (upload)',
+      type: 'file',
+      options: {accept: 'video/*'},
+      description: 'Replaces the image on the card when set.',
+    }),
+    defineField({
+      name: 'previewVideoUrl',
+      title: 'Demo video URL',
+      type: 'string',
+      description: 'Alternative to uploading. A full URL, or a path such as /videos/demo.mp4.',
+    }),
+    defineField({name: 'demoLink', title: 'Live demo / App Store link', type: 'url'}),
+    defineField({name: 'sourceCodeLink', title: 'Source code link', type: 'url'}),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      description: 'Lower numbers appear first.',
+      initialValue: 0,
+    }),
+  ],
+  orderings: [{title: 'Site order', name: 'siteOrder', by: [{field: 'order', direction: 'asc'}]}],
+  preview: {select: {title: 'name', subtitle: 'period', media: 'image'}},
+})

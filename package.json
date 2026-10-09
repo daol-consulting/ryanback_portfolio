@@ -5,9 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "prebuild": "node scripts/cms-pull.mjs",
+    "build": "vite build && node scripts/prerender.mjs",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "cms:pull": "node scripts/cms-pull.mjs",
+    "cms:seed": "node scripts/cms-seed.mjs",
+    "studio": "npm --prefix studio run dev",
+    "studio:deploy": "npm --prefix studio run deploy"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

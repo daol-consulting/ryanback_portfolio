@@ -1,6 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect } from "react";
-import { aboutProfile } from "../../assets";
 import { SectionAurora } from "../aceternity/SectionAurora";
 import { FadeContent } from "../../react-bits";
 import EditorialSectionHeading from "../site/EditorialSectionHeading";
@@ -28,20 +27,35 @@ export default function AboutSection() {
             <ProfileQuickLinks className="mt-4 sm:mt-5" />
           </AosBlock>
           <AosBlock delay={70} className="relative mt-6 md:mt-10 flex flex-col md:flex-row md:items-start md:gap-8 lg:gap-10 xl:gap-11 md:justify-between">
-            <div
-              aria-hidden
-              className="about-profile-bg-shell relative isolate mx-auto mb-6 shrink-0 overflow-hidden aspect-[824/1024] w-full max-w-[260px] sm:max-w-[min(300px,calc(100vw-3rem))] rounded-2xl border border-brand-light/35 shadow-[0_12px_40px_-28px_rgba(15,76,117,0.35)] md:mx-0 md:mb-0 md:w-[17rem] lg:w-[18.5rem] xl:w-[19rem]"
+            <aside
+              aria-label="At a glance"
+              className="mb-6 w-full shrink-0 rounded-2xl border border-brand-light bg-white p-4 shadow-[0_1px_2px_rgba(15,76,117,0.06)] sm:p-5 md:mb-0 md:w-[17rem] lg:w-[18.5rem] xl:w-[19rem]"
             >
-              <img
-                src={aboutProfile}
-                alt=""
-                width={824}
-                height={1024}
-                decoding="async"
-                className="about-profile-photo about-profile-bg-photo"
-              />
-              <div className="about-profile-edge-blur" />
-            </div>
+              <p className="text-[11px] sm:text-[12px] font-semibold tracking-[0.22em] uppercase text-brand-deep">At a glance</p>
+              <dl className="mt-3 grid grid-cols-1 xs:grid-cols-2 gap-x-5 md:grid-cols-1">
+                {profileAbout.facts?.map((fact) => (
+                  <div key={fact.label} className="border-t border-brand-light/70 py-2.5">
+                    <dt className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{fact.label}</dt>
+                    <dd className="mt-0.5 text-[14px] leading-snug font-medium text-slate-800 mobile-safe-text">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              {profileAbout.coreStack?.length ? (
+                <div className="border-t border-brand-light/70 pt-3">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">Core stack</p>
+                  <ul className="mt-2 flex flex-wrap gap-1.5">
+                    {profileAbout.coreStack.map((item) => (
+                      <li
+                        key={item}
+                        className="inline-flex items-center rounded-full border border-brand-light bg-brand-chip px-2.5 py-1 text-[11px] font-semibold text-brand-deep"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </aside>
 
             <ScrollRevealItem
               className="relative z-[2] flex-1 min-w-0 space-y-5 md:space-y-6 w-full"
