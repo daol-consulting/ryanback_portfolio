@@ -59,7 +59,19 @@ const buildJsonLd = (seo, cms) => {
         ...(educations.length
           ? { alumniOf: educations.map((edu) => ({ "@type": "CollegeOrUniversity", name: edu.school })) }
           : {}),
-        knowsAbout: ["React", "TypeScript", "Next.js", "Firestore", "Supabase", "Headless Shopify", "Sanity CMS"],
+        knowsAbout: [
+          "React",
+          "TypeScript",
+          "Next.js",
+          "Node.js",
+          "Firestore",
+          "Supabase",
+          "PostgreSQL",
+          "Google Apps Script",
+          "Chrome extensions",
+          "Headless Shopify",
+          "Sanity CMS",
+        ],
         sameAs: [
           "https://www.linkedin.com/in/ryan-back/",
           "https://github.com/ho0405",

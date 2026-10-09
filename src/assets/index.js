@@ -2,6 +2,7 @@
 import daolInvoiceAutomationWorkflow from "./daol-invoice-automation-workflow.png";
 import dontgobrokePromo from "./dontgobroke-promo.png";
 import hl7chatbotinterface from "./hl7chatbotinterface.webp";
+import nobiaScreenshot from "./nobia-screenshot.png";
 
 import html from "./tech/html.webp";
 import css from "./tech/css.webp";
@@ -22,6 +23,7 @@ export {
   daolInvoiceAutomationWorkflow,
   dontgobrokePromo,
   hl7chatbotinterface,
+  nobiaScreenshot,
   html,
   css,
   javascript,

@@ -4,10 +4,11 @@
       "React",
       "TypeScript",
       "Next.js",
+      "Node.js",
       "Firestore",
-      "Supabase"
+      "Supabase / PostgreSQL"
     ],
-    "eyebrow": "Calgary, AB · Full-stack (frontend-strong) · Production and consulting delivery",
+    "eyebrow": "Calgary, AB · Full-stack engineer · Production and consulting delivery",
     "facts": [
       {
         "label": "Based in",
@@ -15,7 +16,7 @@
       },
       {
         "label": "Focus",
-        "value": "Full-stack, strongest on the frontend"
+        "value": "Full-stack: UI, data, APIs and automation"
       },
       {
         "label": "Currently",
@@ -23,7 +24,7 @@
       },
       {
         "label": "Shipped",
-        "value": "10+ custom client sites and an iOS app on the App Store"
+        "value": "10+ client sites, an iOS app and a Chrome extension"
       },
       {
         "label": "Open to",
@@ -31,8 +32,8 @@
       }
     ],
     "paragraphs": [
-      "Most of my work is turning day-to-day operations into software people can rely on. At Posy that meant inventory, purchase orders, sales orders and reporting that had to stay consistent while several people worked in the same data at once. I spend a lot of time on edge cases, because that is usually where a system breaks in real use.",
-      "I also run Daol Consulting, a small studio in Calgary. I build custom websites for local businesses and stay involved after launch. I check in, watch where their day slows down, and fix it with software when I can. Usually the job is simple: find the thing that annoys a small business owner every week and make it go away.",
+      "Most of my work is turning day-to-day operations into software people can rely on. At Posy that meant inventory, purchase orders, sales orders and reporting that had to stay consistent while several people worked in the same data at once. I work on both sides of that: the screens people use, and the data model, validation and real-time sync underneath. I spend a lot of time on edge cases, because that is usually where a system breaks in real use.",
+      "I also run Daol Consulting, a small studio in Calgary. I build custom websites for local businesses and stay involved after launch. I check in, watch where their day slows down, and fix it with software when I can. Sometimes that is a new feature. Often it is an automation, built with Google Apps Script, Make or n8n, that takes a weekly chore off a small business owner’s plate.",
       "My personal projects are on GitHub under ho0405, and Daol client work lives in the consulting-daol organization. The Posy ERP is proprietary, so none of that code is public.",
       "Outside of work I keep a running list of small inefficiencies, both the ones I run into myself and the ones people around me complain about. I write them down and come back to them when I have time to build."
     ],
@@ -212,7 +213,7 @@
       "impactLine": "Live inventory / PO–SO safeguards, real-time stock views, catalog search at scale, and reporting exports trusted in daily ops.",
       "name": "Production ERP — inventory, orders & reporting (Posy Inc.)",
       "period": "Apr 2025 — Nov 2025",
-      "roleLine": "Full-stack co-op · production ERP frontend and data-heavy operator flows.",
+      "roleLine": "Full-stack co-op · production ERP across the UI and the Firestore data layer.",
       "slug": "posy-erp-production",
       "stack": [
         "React",
@@ -279,6 +280,41 @@
           "name": "ios"
         }
       ]
+    },
+    {
+      "bullets": [
+        "Every image starts blurred and is revealed only after it has been checked, so nothing flashes on screen.",
+        "On-device image analysis recognizes what is in a picture even without a caption, and it can tell look-alikes apart (snakes are hidden, lizards and turtles stay visible).",
+        "Also reads captions, file names, alt text and search terms, and checks ads, embedded posts and YouTube thumbnails.",
+        "One-click corrections for wrongly hidden or missed images, plus Craving Guard and Focus Guard modes.",
+        "No servers, accounts, analytics or ads. Available in English and Korean."
+      ],
+      "context": "Daol Consulting · Chrome Web Store",
+      "demo_link": "https://chromewebstore.google.com/detail/nobia-hide-what-scares-yo/pglgdeadoefgjlnidnmodmlgfecdcphm",
+      "featured": true,
+      "image": "https://cdn.sanity.io/images/z0se41xa/production/d2b7be2138622e497a2cec031a9c33b3a6c2ef81-1280x800.png?w=900&fit=max&auto=format",
+      "impactLine": "Blurs first and checks second, with all detection running in the browser.",
+      "name": "Nobia: Hide What Scares You (Chrome extension)",
+      "period": "2026",
+      "roleLine": "Designed, built and published on the Chrome Web Store.",
+      "slug": "nobia-chrome-extension",
+      "stack": [
+        "Chrome Extension",
+        "On-device ML"
+      ],
+      "summary": "Chrome extension that blurs images of things you fear, such as spiders, snakes or blood, before they appear on screen. Image analysis runs on your device by default and images are never uploaded.",
+      "tags": [
+        {
+          "name": "chrome-extension"
+        },
+        {
+          "name": "on-device-ml"
+        },
+        {
+          "name": "privacy"
+        }
+      ],
+      "source_code_link": ""
     },
     {
       "bullets": [
@@ -523,12 +559,16 @@
     }
   ],
   "seo": {
-    "description": "Ryan Back is a full-stack software engineer in Calgary. Production ERP experience, custom client websites through Daol Consulting, and a React and TypeScript stack with Firestore and Supabase.",
+    "description": "Ryan Back is a full-stack software engineer in Calgary. Production ERP work across UI and data layer, client sites and automation through Daol Consulting, and shipped web, iOS and Chrome extension products.",
     "keywords": [
       "Ryan Back",
       "full-stack engineer",
       "software engineer Calgary",
       "React developer",
+      "Node.js",
+      "Supabase",
+      "Google Apps Script",
+      "Chrome extension developer",
       "TypeScript",
       "Next.js",
       "Daol Consulting"

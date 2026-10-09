@@ -10,6 +10,7 @@ import {
   daolInvoiceAutomationWorkflow,
   dontgobrokePromo,
   hl7chatbotinterface,
+  nobiaScreenshot,
 } from "../assets";
 import careerCraLogo from "../assets/career-cra-logo.png";
 import careerDaolLogo from "../assets/career-daol-logo.png";
@@ -278,10 +279,10 @@ const localCertifications = [
  * About column copy — recruiter-friendly scans, grounded in Career / Projects.
  */
 const localProfileAbout = {
-  eyebrow: "Calgary, AB · Full-stack (frontend-strong) · Production and consulting delivery",
+  eyebrow: "Calgary, AB · Full-stack engineer · Production and consulting delivery",
   paragraphs: [
-    "Most of my work is turning day-to-day operations into software people can rely on. At Posy that meant inventory, purchase orders, sales orders and reporting that had to stay consistent while several people worked in the same data at once. I spend a lot of time on edge cases, because that is usually where a system breaks in real use.",
-    "I also run Daol Consulting, a small studio in Calgary. I build custom websites for local businesses and stay involved after launch. I check in, watch where their day slows down, and fix it with software when I can. Usually the job is simple: find the thing that annoys a small business owner every week and make it go away.",
+    "Most of my work is turning day-to-day operations into software people can rely on. At Posy that meant inventory, purchase orders, sales orders and reporting that had to stay consistent while several people worked in the same data at once. I work on both sides of that: the screens people use, and the data model, validation and real-time sync underneath. I spend a lot of time on edge cases, because that is usually where a system breaks in real use.",
+    "I also run Daol Consulting, a small studio in Calgary. I build custom websites for local businesses and stay involved after launch. I check in, watch where their day slows down, and fix it with software when I can. Sometimes that is a new feature. Often it is an automation, built with Google Apps Script, Make or n8n, that takes a weekly chore off a small business owner\u2019s plate.",
     "My personal projects are on GitHub under ho0405, and Daol client work lives in the consulting-daol organization. The Posy ERP is proprietary, so none of that code is public.",
     "Outside of work I keep a running list of small inefficiencies, both the ones I run into myself and the ones people around me complain about. I write them down and come back to them when I have time to build.",
   ],
@@ -290,12 +291,12 @@ const localProfileAbout = {
   /** "At a glance" card beside the About copy. */
   facts: [
     { label: "Based in", value: "Calgary, AB" },
-    { label: "Focus", value: "Full-stack, strongest on the frontend" },
+    { label: "Focus", value: "Full-stack: UI, data, APIs and automation" },
     { label: "Currently", value: "Running Daol Consulting" },
-    { label: "Shipped", value: "10+ custom client sites and an iOS app on the App Store" },
+    { label: "Shipped", value: "10+ client sites, an iOS app and a Chrome extension" },
     { label: "Open to", value: "Full-time roles and serious collaboration" },
   ],
-  coreStack: ["React", "TypeScript", "Next.js", "Firestore", "Supabase"],
+  coreStack: ["React", "TypeScript", "Next.js", "Node.js", "Firestore", "Supabase / PostgreSQL"],
 };
 
 /**
@@ -303,12 +304,12 @@ const localProfileAbout = {
  */
 export const skillsNarrative = {
   pitch:
-    "These tags are shorthand. The groupings summarize how stacks show up in shipping work: ERP scale, consulting delivery, and product-oriented frontend foundations.",
+    "These tags are shorthand. The groupings show where each stack turns up in shipped work: production ERP, backend and automation, client delivery, and products outside the browser tab.",
 };
 
 export const skillStrengthThemes = [
   {
-    title: "Production ERP and data-heavy UI",
+    title: "Production ERP, UI to data layer",
     bullets: [
       "Firestore-backed inventory and PO/SO flows with guards against unsafe deletes",
       "Real-time listeners and searchable catalogs with persisted queries",
@@ -316,20 +317,29 @@ export const skillStrengthThemes = [
     ],
   },
   {
-    title: "Consulting and growth implementation",
+    title: "Backend, data and automation",
     bullets: [
-      "Next.js/React sites prioritized for conversion and measurable performance",
-      "Headless Shopify storefront work (React + TypeScript on Vercel) for sellable catalogues and checkout-adjacent UX",
-      "Google and Meta funnel wiring with attributable conversion checkpoints",
-      "Internal React consoles so campaigns and leads remain auditable",
+      "Supabase / PostgreSQL schemas, auth and APIs behind shipped products",
+      "Firestore data modeling with validation that protects linked records",
+      "Google Apps Script, Make and n8n automations across Google Workspace",
+      "Receipt OCR pipeline that turns uploads into structured, categorized transactions",
     ],
   },
   {
-    title: "Frontend craft and disciplined stacks",
+    title: "Client delivery and growth",
     bullets: [
-      "TypeScript-forward components with attention to layering, scrolling, and popover edge cases",
-      "Supabase and Capacitor used where fast iteration beats ceremony",
-      "Comfort moving between greenfield prototypes and iterative client maintenance",
+      "Next.js and React sites built for speed and conversion",
+      "Sanity CMS on client sites so owners can update content themselves",
+      "Headless Shopify storefront work (React + TypeScript on Vercel)",
+      "Google and Meta funnels with conversion tracking wired end to end",
+    ],
+  },
+  {
+    title: "Products beyond the web app",
+    bullets: [
+      "Chrome extension with on-device image analysis, published on the Chrome Web Store",
+      "iOS app shipped to the App Store with Capacitor",
+      "Electron desktop app with releases through GitHub",
     ],
   },
 ];
@@ -379,7 +389,7 @@ const localProjects = [
     ],
     image: null,
     source_code_link: "",
-    roleLine: "Full-stack co-op · production ERP frontend and data-heavy operator flows.",
+    roleLine: "Full-stack co-op · production ERP across the UI and the Firestore data layer.",
     impactLine:
       "Live inventory / PO–SO safeguards, real-time stock views, catalog search at scale, and reporting exports trusted in daily ops.",
   },
@@ -408,6 +418,34 @@ const localProjects = [
     demo_link: "https://apps.apple.com/us/app/dontgobroke/id6760254186",
     roleLine: "Solo builder — UX, engineering, release on App Store (Capacitor / iOS).",
     impactLine: "Shipped consumer finance app focusing on sub-minute logging and calm defaults; iterating on ingestion (e.g. FinanceKit exploration).",
+  },
+  {
+    slug: "nobia-chrome-extension",
+    featured: true,
+    name: "Nobia: Hide What Scares You (Chrome extension)",
+    period: "2026",
+    context: "Daol Consulting · Chrome Web Store",
+    summary:
+      "Chrome extension that blurs images of things you fear, such as spiders, snakes or blood, before they appear on screen. Image analysis runs on your device by default and images are never uploaded.",
+    bullets: [
+      "Every image starts blurred and is revealed only after it has been checked, so nothing flashes on screen.",
+      "On-device image analysis recognizes what is in a picture even without a caption, and it can tell look-alikes apart (snakes are hidden, lizards and turtles stay visible).",
+      "Also reads captions, file names, alt text and search terms, and checks ads, embedded posts and YouTube thumbnails.",
+      "One-click corrections for wrongly hidden or missed images, plus Craving Guard and Focus Guard modes.",
+      "No servers, accounts, analytics or ads. Available in English and Korean.",
+    ],
+    stack: ["Chrome Extension", "On-device ML"],
+    tags: [
+      { name: "chrome-extension", color: "blue-text-gradient" },
+      { name: "on-device-ml", color: "green-text-gradient" },
+      { name: "privacy", color: "pink-text-gradient" },
+    ],
+    image: nobiaScreenshot,
+    source_code_link: "",
+    demo_link:
+      "https://chromewebstore.google.com/detail/nobia-hide-what-scares-yo/pglgdeadoefgjlnidnmodmlgfecdcphm",
+    roleLine: "Designed, built and published on the Chrome Web Store.",
+    impactLine: "Blurs first and checks second, with all detection running in the browser.",
   },
   {
     slug: "chaeback-expense",
