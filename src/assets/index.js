@@ -1,5 +1,4 @@
 /** Images used by App, siteContent, and constants (skill pill fallbacks). */
-import aboutProfile from "./about-profile-3d.png";
 import daolInvoiceAutomationWorkflow from "./daol-invoice-automation-workflow.png";
 import dontgobrokePromo from "./dontgobroke-promo.png";
 import hl7chatbotinterface from "./hl7chatbotinterface.webp";
@@ -20,7 +19,6 @@ import flutter from "./tech/flutter.webp";
 import vercel from "./tech/vercel.webp";
 
 export {
-  aboutProfile,
   daolInvoiceAutomationWorkflow,
   dontgobrokePromo,
   hl7chatbotinterface,

@@ -32,7 +32,7 @@ The dev server prints the local URL (Vite defaults to `http://localhost:5173`).
 | Script        | Description              |
 | ------------- | ------------------------ |
 | `npm run dev` | Start Vite dev server    |
-| `npm run build` | Production build to `dist/` |
+| `npm run build` | Pull CMS content, build to `dist/`, prerender HTML |
 | `npm run preview` | Serve `dist` locally     |
 | `npm run lint` | ESLint (JS/JSX)          |
 
@@ -68,13 +68,31 @@ Branding and UI rules: see **`DESIGN.md`** at the repo root. Pending tweaks may 
 
 ## Editing content
 
-- **Narrative, projects, career, links:** `src/content/siteContent.js`
-- **Hero lines:** `src/content/heroCopy.js`
-- **Layout tokens (section padding, glass card class, nav offsets):** `src/lib/siteTokens.js`
+About, career, projects, education, certifications and SEO text live in **Sanity**.
+
+- **Studio:** [ryanback-portfolio.sanity.studio](https://ryanback-portfolio.sanity.studio) (source in `studio/`, run locally with `npm run studio`)
+- **How it reaches the site:** `scripts/cms-pull.mjs` snapshots published content into `src/content/generated/cms.json` before every build. The site stays fully static, so a publish needs a rebuild (see the webhook note under Deploy).
+- **Fallback:** if a section is empty in Sanity, the local copy in `src/content/siteContent.js` is used.
+- **Still in code:** hero lines (`src/content/heroCopy.js`), profile links and Contact cards (`src/content/siteContent.js`), skill groups (`src/constants/index.js`).
+
+| Script | Description |
+| ------ | ----------- |
+| `npm run cms:pull` | Refresh the local content snapshot from Sanity |
+| `npm run cms:seed` | Write local fallback content to `.tmp/seed.ndjson` for `sanity dataset import` |
+| `npm run studio` | Run Sanity Studio locally |
+| `npm run studio:deploy` | Deploy Studio after schema changes |
+
+## SEO
+
+- Title, description, keywords and share image come from Sanity "Site settings & SEO", with defaults in `src/content/seo.js` (also holds `SITE_URL` for canonical and Open Graph URLs).
+- `scripts/vite-seo-plugin.mjs` fills the head tags and JSON-LD in `index.html` and emits `sitemap.xml`. `public/robots.txt` points to it.
+- `scripts/prerender.mjs` renders the app into `dist/index.html` after the client build, and `src/main.jsx` hydrates it.
 
 ## Deploy
 
-Compatible with static hosts (for example Vercel). Build output is `dist/` from `npm run build`. Configure the host to serve `index.html` for SPA routes if you add client-side routing later; this app is hash-friendly for section links (`#about`, `#projects`, etc.).
+Compatible with static hosts (for example Vercel). Build output is `dist/` from `npm run build`.
+
+To publish Sanity edits automatically, create a Deploy Hook in Vercel (Project Settings, Git, Deploy Hooks) and add its URL as a webhook in Sanity (sanity.io/manage, API, Webhooks) that fires on create, update and delete. Configure the host to serve `index.html` for SPA routes if you add client-side routing later; this app is hash-friendly for section links (`#about`, `#projects`, etc.).
 
 ## Contributing
 

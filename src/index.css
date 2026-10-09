@@ -148,9 +148,12 @@ body {
   border-color: rgba(50, 130, 184, 0.4);
 }
 
-/* Projects: equal card heights — --project-card-min-h set on .project-cards-grid via layout effect */
-.project-cards-grid > [data-project-card] {
-  min-height: var(--project-card-min-h, unset);
+/* Projects: equal card heights — --project-card-min-h set on .project-cards-grid via layout effect.
+   Single-column (mobile) cards keep their natural height so short cards do not leave a blank gap. */
+@media (min-width: 768px) {
+  .project-cards-grid > [data-project-card] {
+    min-height: var(--project-card-min-h, unset);
+  }
 }
 
 .skill-pill {
@@ -820,63 +823,4 @@ body {
   background: linear-gradient(to top, #3282b8, #bbe1fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* About portrait panel — sizing from aspect-[824/1024] in markup; photo fills box at native ratio */
-
-.about-profile-bg-shell {
-  pointer-events: none;
-}
-
-.about-profile-bg-photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* fades + soften into headline row / gutter */
-.about-profile-photo {
-  object-position: 50% 28%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%);
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-
-@media (min-width: 768px) {
-  /* Column layout beside copy: keep full silhouette (no sideways fade into text). */
-  .about-profile-photo {
-    object-position: 50% 30%;
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 88%, transparent 100%);
-  }
-}
-
-.about-profile-edge-blur {
-  pointer-events: none;
-  position: absolute;
-  inset: auto 0 0 0;
-  height: clamp(22%, 11rem, 38%);
-  /* brand-surface #f4fbff — light veil so backdrop-blur reads */
-  background: linear-gradient(to top, rgba(244, 251, 255, 0.72), transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  -webkit-mask-image: linear-gradient(to top, black 52%, transparent 100%);
-  mask-image: linear-gradient(to top, black 52%, transparent 100%);
-}
-
-@media (min-width: 768px) {
-  .about-profile-edge-blur {
-    inset: auto 0 0 0;
-    width: 100%;
-    height: clamp(18%, 6rem, 30%);
-    background: linear-gradient(to top, rgba(244, 251, 255, 0.7), transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -webkit-mask-image: linear-gradient(to top, black 45%, transparent 100%);
-    mask-image: linear-gradient(to top, black 45%, transparent 100%);
-  }
 }

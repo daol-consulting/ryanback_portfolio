@@ -1,7 +1,10 @@
 /**
  * Portfolio narrative content (resume-backed).
- * Replace this file when you paste your real positions, projects, education, and links.
- * App and section components import from here — not from constants.
+ * App and section components import from here, not from constants.
+ *
+ * About, career, projects, education and certifications are edited in Sanity (see /studio).
+ * `npm run cms:pull` (also run before every build) snapshots published content into
+ * ./generated/cms.json. The local* values below are the fallback when a section is empty there.
  */
 import {
   daolInvoiceAutomationWorkflow,
@@ -12,6 +15,7 @@ import careerCraLogo from "../assets/career-cra-logo.png";
 import careerDaolLogo from "../assets/career-daol-logo.png";
 import careerEmpoweredFuturesLogo from "../assets/career-empowered-futures-logo.png";
 import careerPosyLogo from "../assets/career-posy-logo.png";
+import cms from "./generated/cms.json";
 
 /**
  * Canonical profile URLs — Career, Projects, and quick-action buttons.
@@ -57,7 +61,7 @@ export const profileQuickLinks = [
  *   projects: Array<{ title: string; period: string; description: string }>;
  * }>}
  */
-export const career = [
+const localCareer = [
   {
     company_name: "Canada Revenue Agency (CRA)",
     location: "Calgary, AB",
@@ -238,7 +242,7 @@ export const connect = [
 ];
 
 /** @type {Array<{ degree: string; school: string; highlights: string }>} */
-export const educations = [
+const localEducations = [
   {
     degree: "Bachelor of Computer Science (Post-Diploma)",
     school: "University of Lethbridge",
@@ -252,7 +256,7 @@ export const educations = [
 ];
 
 /** @type {Array<{ name: string; issuer: string; year: string }>} */
-export const certifications = [
+const localCertifications = [
   {
     name: "Google IT Support Professional Certificate",
     issuer: "Google",
@@ -273,15 +277,25 @@ export const certifications = [
 /**
  * About column copy — recruiter-friendly scans, grounded in Career / Projects.
  */
-export const profileAbout = {
+const localProfileAbout = {
   eyebrow: "Calgary, AB · Full-stack (frontend-strong) · Production and consulting delivery",
   paragraphs: [
-    "I focus on turning real operational workflows into software that people can actually rely on—inventory, purchase orders, sales orders, and reporting that stay consistent even when multiple users are working at the same time. I care a lot about edge cases and making sure the system doesn’t break under real usage.",
-    "Alongside that, I run Daol Consulting. I build custom websites and keep working with clients after launch—checking in regularly, looking for friction in how they operate, and trying to solve those problems through software. Most of the time, the goal is simple: take something that’s inconvenient for small business owners and make it easier through better systems. Studio code paths split cleanly: personal work and experiments live on GitHub as ho0405, while Daol client delivery repos are under the consulting-daol organization (github.com/consulting-daol). Posy’s production ERP stays on employer systems only—not in my public repos.",
-    "On my own time, I’m constantly paying attention to small inefficiencies—whether it’s something I experience myself or something people around me mention. I usually write these down and turn them into ideas I can explore later.",
+    "Most of my work is turning day-to-day operations into software people can rely on. At Posy that meant inventory, purchase orders, sales orders and reporting that had to stay consistent while several people worked in the same data at once. I spend a lot of time on edge cases, because that is usually where a system breaks in real use.",
+    "I also run Daol Consulting, a small studio in Calgary. I build custom websites for local businesses and stay involved after launch. I check in, watch where their day slows down, and fix it with software when I can. Usually the job is simple: find the thing that annoys a small business owner every week and make it go away.",
+    "My personal projects are on GitHub under ho0405, and Daol client work lives in the consulting-daol organization. The Posy ERP is proprietary, so none of that code is public.",
+    "Outside of work I keep a running list of small inefficiencies, both the ones I run into myself and the ones people around me complain about. I write them down and come back to them when I have time to build.",
   ],
   principle:
-    "I’m less interested in how things look in mockups, and more in whether they hold up in real use—validation, real-time state, and reporting that stay reliable when things get messy. That’s where I tend to spend extra time.",
+    "I care less about how something looks in a mockup than whether it holds up in real use. Validation, real-time state and reporting that stay correct when things get messy are where I spend the extra time.",
+  /** "At a glance" card beside the About copy. */
+  facts: [
+    { label: "Based in", value: "Calgary, AB" },
+    { label: "Focus", value: "Full-stack, strongest on the frontend" },
+    { label: "Currently", value: "Running Daol Consulting" },
+    { label: "Shipped", value: "10+ custom client sites and an iOS app on the App Store" },
+    { label: "Open to", value: "Full-time roles and serious collaboration" },
+  ],
+  coreStack: ["React", "TypeScript", "Next.js", "Firestore", "Supabase"],
 };
 
 /**
@@ -341,7 +355,7 @@ export const skillStrengthThemes = [
  *   impactLine?: string;
  * }>}
  */
-export const projects = [
+const localProjects = [
   {
     slug: "posy-erp-production",
     featured: true,
@@ -566,3 +580,20 @@ export const projects = [
     impactLine: "Subscription invoices dispatch on schedule; operators are not chained to calendar reminders and manual sends.",
   },
 ];
+
+const fromCms = (list, fallback) => (Array.isArray(list) && list.length > 0 ? list : fallback);
+
+/** Raw local copy, used by scripts/cms-seed.mjs to populate an empty dataset. */
+export const localContent = {
+  about: localProfileAbout,
+  career: localCareer,
+  projects: localProjects,
+  educations: localEducations,
+  certifications: localCertifications,
+};
+
+export const profileAbout = cms.about?.paragraphs?.length ? cms.about : localProfileAbout;
+export const career = fromCms(cms.career, localCareer);
+export const projects = fromCms(cms.projects, localProjects);
+export const educations = fromCms(cms.educations, localEducations);
+export const certifications = fromCms(cms.certifications, localCertifications);

@@ -20,8 +20,16 @@ if ('caches' in window) {
   })
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const rootEl = document.getElementById('root')
+const app = (
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+
+// Production HTML is prerendered (scripts/prerender.mjs); dev serves an empty root.
+if (rootEl.firstElementChild) {
+  ReactDOM.hydrateRoot(rootEl, app)
+} else {
+  ReactDOM.createRoot(rootEl).render(app)
+}

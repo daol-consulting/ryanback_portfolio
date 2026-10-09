@@ -1,0 +1,538 @@
+{
+  "about": {
+    "coreStack": [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Firestore",
+      "Supabase"
+    ],
+    "eyebrow": "Calgary, AB · Full-stack (frontend-strong) · Production and consulting delivery",
+    "facts": [
+      {
+        "label": "Based in",
+        "value": "Calgary, AB"
+      },
+      {
+        "label": "Focus",
+        "value": "Full-stack, strongest on the frontend"
+      },
+      {
+        "label": "Currently",
+        "value": "Running Daol Consulting"
+      },
+      {
+        "label": "Shipped",
+        "value": "10+ custom client sites and an iOS app on the App Store"
+      },
+      {
+        "label": "Open to",
+        "value": "Full-time roles and serious collaboration"
+      }
+    ],
+    "paragraphs": [
+      "Most of my work is turning day-to-day operations into software people can rely on. At Posy that meant inventory, purchase orders, sales orders and reporting that had to stay consistent while several people worked in the same data at once. I spend a lot of time on edge cases, because that is usually where a system breaks in real use.",
+      "I also run Daol Consulting, a small studio in Calgary. I build custom websites for local businesses and stay involved after launch. I check in, watch where their day slows down, and fix it with software when I can. Usually the job is simple: find the thing that annoys a small business owner every week and make it go away.",
+      "My personal projects are on GitHub under ho0405, and Daol client work lives in the consulting-daol organization. The Posy ERP is proprietary, so none of that code is public.",
+      "Outside of work I keep a running list of small inefficiencies, both the ones I run into myself and the ones people around me complain about. I write them down and come back to them when I have time to build."
+    ],
+    "principle": "I care less about how something looks in a mockup than whether it holds up in real use. Validation, real-time state and reporting that stay correct when things get messy are where I spend the extra time."
+  },
+  "career": [
+    {
+      "company_name": "Canada Revenue Agency (CRA)",
+      "highlights": [
+        "Client service",
+        "Systems navigation",
+        "Policy & compliance"
+      ],
+      "location": "Calgary, AB",
+      "logo": "https://cdn.sanity.io/images/z0se41xa/production/f7d92ef8881148fa9e808444a68502a05cbc2efc-360x240.png?w=256&fit=max&auto=format",
+      "period": "Mar 2026 — Present",
+      "projects": [
+        {
+          "description": "Resolve inquiries via multiple internal applications; diagnose account and procedural issues under pressure; communicate technical and regulatory details plainly. (Service delivery)",
+          "period": "Mar 2026 — Present",
+          "title": "Taxpayer services operations"
+        }
+      ],
+      "role_title": "Taxpayer Services Agent · SP-04",
+      "tagline": "High-volume public service for complex tax and program questions, balancing policy, systems data, and clear explanations for non-technical users.",
+      "logo_bg": "#ffffff"
+    },
+    {
+      "company_name": "Daol Consulting",
+      "company_website": "https://daolconsulting.com",
+      "highlights": [
+        "React / TypeScript · Vercel",
+        "Headless Shopify",
+        "Supabase",
+        "Ads & analytics",
+        "Product delivery"
+      ],
+      "location": "Calgary, AB",
+      "logo": "https://cdn.sanity.io/images/z0se41xa/production/f4527d3e8d1e49300e807e278baa9cb0cd929fd7-1028x323.png?w=256&fit=max&auto=format",
+      "period": "Jan 2025 — Present",
+      "projects": [
+        {
+          "description": "React + TypeScript storefront deployed on Vercel, Shopify in a headless configuration (Storefront/catalog/checkout patterns)—selling miscellaneous product lines alongside core commerce UX. Currently in delivery; storefront owns presentation while Shopify anchors product and order primitives. (E‑commerce · in progress)",
+          "period": "In progress · 2025",
+          "title": "Headless Shopify e‑commerce storefront"
+        },
+        {
+          "description": "10+ shipped custom sites (no templates), e.g. Taekwondo ON rebuild + funnel, MHK Taekwondo, Choi Martial Arts, Cosmos Dental Lab, WISE Institute CMS-style updates, MAVIS / BNA Builders—focused on speed, conversion, and maintainability. (Frontend · full-stack)",
+          "period": "Jan 2025 — Present",
+          "title": "Client web — performance & conversion"
+        },
+        {
+          "description": "Google Ads + Meta Ads, landing pages, and conversion tracking—roughly 100+ qualified leads in about two weeks. (Growth · implementation)",
+          "period": "Campaign · 2025",
+          "title": "Lead generation — Taekwondo ON"
+        },
+        {
+          "description": "Campaign structure (Google/Meta), lead tracking, performance logging, and client segmentation so marketing work stays visible and repeatable. (React · data)",
+          "period": "Jan 2025 — Present",
+          "title": "Internal marketing management tool"
+        },
+        {
+          "description": "Built with Make.com and n8n: Gmail and Google Docs wired so yearly subscription invoices go out automatically on each client’s renewal date—no manual resend chasing. (Automation)",
+          "period": "Jan 2025 — Present",
+          "title": "Invoice automation"
+        }
+      ],
+      "role_title": "Self-Employed · Full-Stack Developer",
+      "tagline": "Independent studio: custom web, Google/Meta funnels, internal tooling, and invoicing—design through deploy and ongoing iteration. Active build: React + TypeScript storefront on Vercel with headless Shopify for e‑commerce and general‑merchandise sales.",
+      "logo_bg": "#ffffff"
+    },
+    {
+      "company_name": "Posy Inc",
+      "highlights": [
+        "Full-stack",
+        "React",
+        "Firestore",
+        "ERP / B2B"
+      ],
+      "location": "Calgary, AB",
+      "logo": "https://cdn.sanity.io/images/z0se41xa/production/b9a7aafa562efc93c9777826c87f157c51c9624d-95x89.png?w=256&fit=max&auto=format",
+      "period": "Apr 2025 — Nov 2025",
+      "projects": [
+        {
+          "description": "Inventory and PO/SO workflows with validation that blocks unsafe product deletion when inventory, PO, or SO references exist (Firestore + hooks such as useInventoryExists). Real-time listeners for accurate stock; tier pricing; fixes for price mismatches and pipeline-breaking edge cases. (Frontend · data layer)",
+          "period": "Apr 2025 — Nov 2025",
+          "title": "ERP core — inventory & order operations"
+        },
+        {
+          "description": "Keyword, brand, and availability search; sorting; infinite scroll; scroll restoration; persisted queries and recent searches for large catalogs. (UX · performance)",
+          "period": "Apr 2025 — Nov 2025",
+          "title": "Product catalog & discovery"
+        },
+        {
+          "description": "Operations reporting with PO/SO visibility, inventory analytics, and Excel export. Resolved dropdown/popover freezes and z-index conflicts; standardized reusable UI. (Frontend · reporting)",
+          "period": "Apr 2025 — Nov 2025",
+          "title": "Reporting & UI reliability"
+        }
+      ],
+      "role_title": "Full-Stack Software Engineer · Co-op",
+      "tagline": "Production ERP used in real operations—inventory, purchase orders, sales orders, and reporting—with strict data integrity and real-time synchronization.",
+      "logo_bg": "#ffffff"
+    },
+    {
+      "company_name": "Empowered Futures",
+      "company_website": "https://www.empoweredfutures.ca/",
+      "highlights": [
+        "Non-profit",
+        "EF Connect",
+        "Full-stack",
+        "Mentorship"
+      ],
+      "location": "Calgary, AB",
+      "logo": "https://cdn.sanity.io/images/z0se41xa/production/053f21e52a5b69b2585cf8e675149d096408b407-1024x416.jpg?w=256&fit=max&auto=format",
+      "period": "May 2024 — Aug 2024",
+      "projects": [
+        {
+          "description": "Co-op delivery on the web platform that connects young adults with mentors—onboarding, program-facing flows, and iteration with a small mission-led team. (Full-stack · product)",
+          "period": "May 2024 — Aug 2024",
+          "title": "EF Connect · mentorship platform"
+        },
+        {
+          "description": "Contributed to mentor, mentee, and volunteer-facing experiences on empoweredfutures.ca—forms, validation, and responsive layout so visitors can move from interest to action without friction. (Frontend · full-stack)",
+          "period": "May 2024 — Aug 2024",
+          "title": "Public site & Get Involved pathways"
+        },
+        {
+          "description": "Polished outreach and contact flows for first-time visitors—copy/layout passes, mobile checks, and tighter validation so the mission reads clearly and sign-up feels trustworthy. (UX · reliability)",
+          "period": "May 2024 — Aug 2024",
+          "title": "Quality & accessibility for non-technical users"
+        }
+      ],
+      "role_title": "Full-Stack Software Engineer · Co-op",
+      "tagline": "Registered Canadian charity (Calgary) helping emerging adults (18–28) build confidence through free mentorship—best known for EF Connect, pairing mentees with experienced professionals.",
+      "logo_bg": "#ffffff"
+    }
+  ],
+  "certifications": [
+    {
+      "issuer": "Google",
+      "name": "Google IT Support Professional Certificate",
+      "year": "2023"
+    },
+    {
+      "issuer": "SCRUMstudy",
+      "name": "Scrum Fundamentals Certified (SFC)",
+      "year": "2024"
+    },
+    {
+      "issuer": "Johns Hopkins University",
+      "name": "Critical Role of IT Support in Healthcare",
+      "year": "2024"
+    }
+  ],
+  "educations": [
+    {
+      "degree": "Bachelor of Computer Science (Post-Diploma)",
+      "highlights": "GPA 3.88/4.0, Dean's Honour List",
+      "school": "University of Lethbridge"
+    },
+    {
+      "degree": "Diploma in Software Development (Honours)",
+      "highlights": "GPA 3.8/4.0, Jason Lang Scholarship",
+      "school": "Southern Alberta Institute of Technology (SAIT)"
+    }
+  ],
+  "projects": [
+    {
+      "bullets": [
+        "Inventory and PO/SO flows with validation that blocks unsafe product deletion when inventory, PO, or SO references still exist (Firestore + hooks such as useInventoryExists).",
+        "Real-time listeners and UI state so stock and order views stay accurate under concurrent use.",
+        "Catalog discovery: search, filters, infinite scroll, scroll restoration, and persisted queries for large product sets.",
+        "Operations reporting with PO/SO visibility, inventory analytics, and Excel export; stabilized dropdowns, popovers, and z-index issues across complex screens."
+      ],
+      "context": "Co-op · live operations",
+      "featured": true,
+      "impactLine": "Live inventory / PO–SO safeguards, real-time stock views, catalog search at scale, and reporting exports trusted in daily ops.",
+      "name": "Production ERP — inventory, orders & reporting (Posy Inc.)",
+      "period": "Apr 2025 — Nov 2025",
+      "roleLine": "Full-stack co-op · production ERP frontend and data-heavy operator flows.",
+      "slug": "posy-erp-production",
+      "stack": [
+        "React",
+        "Firestore",
+        "TypeScript",
+        "ERP / B2B"
+      ],
+      "summary": "Full-stack work on a real ERP: inventory, purchase and sales orders, pricing, and operator-facing reporting with strict data integrity. Codebase is Posy Inc. property—there is no public copy under my personal GitHub.",
+      "tags": [
+        {
+          "name": "react"
+        },
+        {
+          "name": "firestore"
+        },
+        {
+          "name": "real-time"
+        },
+        {
+          "name": "erp"
+        }
+      ],
+      "image": null,
+      "source_code_link": ""
+    },
+    {
+      "bullets": [
+        "React + TypeScript (Vite), Tailwind and Radix primitives, Supabase for auth and persistence, Capacitor wrapper for iOS.",
+        "Exploring FinanceKit / Apple Pay–driven ingestion to reduce manual line-by-line entry.",
+        "Product decisions driven by shipping and iteration rather than feature sprawl."
+      ],
+      "context": "Individual · shipped to App Store",
+      "demo_link": "https://apps.apple.com/us/app/dontgobroke/id6760254186",
+      "featured": true,
+      "image": "https://cdn.sanity.io/images/z0se41xa/production/83e50892d1bfdf567b5ac32323ac1c855a68e6b9-230x499.webp?w=900&fit=max&auto=format",
+      "impactLine": "Shipped consumer finance app focusing on sub-minute logging and calm defaults; iterating on ingestion (e.g. FinanceKit exploration).",
+      "name": "DontGoBroke — minimal iOS expense tracker (shipped)",
+      "period": "2024 — ongoing",
+      "roleLine": "Solo builder — UX, engineering, release on App Store (Capacitor / iOS).",
+      "slug": "dontgobroke-ios",
+      "source_code_link": "https://github.com/ho0405",
+      "stack": [
+        "TypeScript",
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Radix UI",
+        "Supabase",
+        "Capacitor",
+        "iOS"
+      ],
+      "summary": "Intentionally small expense tracker for people tired of bloated finance apps—focus on fast capture and a calm UI.",
+      "tags": [
+        {
+          "name": "typescript"
+        },
+        {
+          "name": "supabase"
+        },
+        {
+          "name": "capacitor"
+        },
+        {
+          "name": "ios"
+        }
+      ]
+    },
+    {
+      "bullets": [
+        "OCR and extraction pipeline on receipts with categorization to reduce typing.",
+        "Supabase-backed schema and APIs; React + TypeScript frontend for review and workflows.",
+        "End-to-end ownership from ingestion UX to persistence and iterative product shape."
+      ],
+      "context": "Individual · full-stack product",
+      "featured": true,
+      "image": "https://cdn.sanity.io/images/z0se41xa/production/68ced727026f472c72731b643f54096af12df35c-3024x1712.webp?w=900&fit=max&auto=format",
+      "impactLine": "Receipt OCR → categorized transactions aimed at shrinking manual bookkeeping time per user.",
+      "name": "Chaeback — AI-assisted expense platform",
+      "period": "2024 — ongoing",
+      "preview_video": "/videos/chaeback-demo.mp4",
+      "roleLine": "Owner-build · full-stack product (React · Supabase) from ingestion UX to persistence.",
+      "slug": "chaeback-expense",
+      "source_code_link": "https://github.com/ho0405",
+      "stack": [
+        "TypeScript",
+        "React",
+        "Supabase",
+        "OCR"
+      ],
+      "summary": "Expense workflow built to cut manual bookkeeping: ingestion from receipts into structured transactions and categories.",
+      "tags": [
+        {
+          "name": "react"
+        },
+        {
+          "name": "typescript"
+        },
+        {
+          "name": "supabase"
+        },
+        {
+          "name": "ocr-ai"
+        }
+      ]
+    },
+    {
+      "bullets": [
+        "Shipped bespoke sites across verticals (e.g. martial arts studios, builders, labs, institutes) with performance and funnel clarity as first-class constraints.",
+        "Iterative UX and content handoff so operators can sustain sites without heavyweight stacks.",
+        "Hosting and analytics wired for real-world measurement—not demo-only setups."
+      ],
+      "context": "Studio · 10+ custom builds",
+      "demo_link": "https://daolconsulting.com",
+      "featured": false,
+      "impactLine": "Template-free launches tuned for measurable speed and conversion; operators keep sites maintainable without heavy stacks.",
+      "name": "Client websites — performance & conversion (Daol Consulting)",
+      "period": "Jan 2025 — Present",
+      "roleLine": "Principal implementer · 10+ bespoke Next.js / React sites (studio delivery).",
+      "slug": "daol-client-web",
+      "source_code_link": "https://github.com/ho0405",
+      "stack": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Analytics"
+      ],
+      "summary": "Template-free sites for real businesses: speed, conversion, and maintainability—not theme churn.",
+      "tags": [
+        {
+          "name": "nextjs"
+        },
+        {
+          "name": "performance"
+        },
+        {
+          "name": "conversion"
+        }
+      ],
+      "image": null
+    },
+    {
+      "bullets": [
+        "Headless Shopify integration: storefront UI owns presentation while Shopify carries product, inventory, and commerce primitives.",
+        "TypeScript-first React build and Vercel deployment—performance and iteration friendly for a sellable catalogue.",
+        "Scope includes general merchandise / supplies alongside core e‑commerce flows; still in active delivery."
+      ],
+      "context": "Studio · React storefront · Vercel · Shopify headless",
+      "featured": true,
+      "impactLine": "Commerce core in Shopify, experience layer in a modern TS/React stack—shipping toward a full sellable storefront.",
+      "name": "Headless Shopify e‑commerce (Daol Consulting — in progress)",
+      "period": "2025 — in progress",
+      "roleLine": "Daol Consulting — headless Shopify storefront (React · TypeScript · Vercel), e‑commerce and general merchandise in scope.",
+      "slug": "daol-headless-shopify-ecommerce",
+      "source_code_link": "https://github.com/ho0405",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Vercel",
+        "Shopify",
+        "Headless commerce"
+      ],
+      "summary": "React + TypeScript storefront hosted on Vercel, Shopify as headless commerce—catalogue-to-checkout patterns for miscellaneous product categories as the build advances.",
+      "tags": [
+        {
+          "name": "shopify"
+        },
+        {
+          "name": "react"
+        },
+        {
+          "name": "vercel"
+        }
+      ],
+      "image": null
+    },
+    {
+      "bullets": [
+        "Desktop app: Electron main/preload/renderer, context isolation, URL validation (http/https), opacity presets, always-on-top, bilingual UI, and global shortcuts—releases and .dmg builds via GitHub Releases (repo name: tranparent-browser).",
+        "Product site: Next.js + TypeScript + Tailwind on Vercel (ho0405/peekaboo-landing), deployed at peekaboo-daol.vercel.app—features, download paths, and documented shortcuts aligned with the app.",
+        "MIT licensed; README documents Mac (Intel + Apple Silicon) download flow and Windows roadmap where applicable."
+      ],
+      "context": "Daol Consulting · Electron · Next.js · Vercel",
+      "demo_link": "https://peekaboo-daol.vercel.app/",
+      "featured": true,
+      "impactLine": "Open-source desktop shell plus a bilingual landing that turns transparency, pinning, and shortcuts into a clear install path from peekaboo-daol.vercel.app.",
+      "name": "Peekaboo — see through the web (Electron + product site)",
+      "period": "2026 — ongoing",
+      "preview_video": "/videos/peekaboo.mp4",
+      "roleLine": "Peekaboo — Electron desktop app (tranparent-browser) plus Next.js product site (peekaboo-landing · Vercel).",
+      "slug": "peekaboo-product-site",
+      "source_code_link": "https://github.com/ho0405/tranparent-browser",
+      "stack": [
+        "Electron",
+        "JavaScript",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel"
+      ],
+      "summary": "Peekaboo is a transparent, always-on-top desktop web window (Electron)—reference docs beside your editor, video beside notes. The public app source is ho0405/tranparent-browser (MIT); peekaboo-daol.vercel.app is the Next.js marketing site with downloads, 한/EN, and shortcut tables (⌘ / Ctrl).",
+      "tags": [
+        {
+          "name": "electron"
+        },
+        {
+          "name": "nextjs"
+        },
+        {
+          "name": "desktop"
+        }
+      ],
+      "image": null
+    },
+    {
+      "bullets": [
+        "Structured campaigns on Google Ads and Meta with landing experiences aligned to creative and intent.",
+        "Conversion instrumentation so spend maps to attributable outcomes.",
+        "Roughly 100+ qualified leads in about two weeks for the focal campaign (directionally—see collateral for detail)."
+      ],
+      "context": "Studio · ads + landing",
+      "featured": false,
+      "name": "Lead generation — Taekwondo ON campaign",
+      "period": "Campaign · 2025",
+      "roleLine": "Growth implementation — Google/Meta ads, landing pages, and conversion instrumentation.",
+      "slug": "daol-taekwondo-leads",
+      "stack": [
+        "Google Ads",
+        "Meta Ads",
+        "Landing pages",
+        "Conversion tracking"
+      ],
+      "summary": "Google and Meta funnel with landing pages and conversion tracking aimed at qualified school leads. Directionally ~100+ qualified leads in about two weeks for the focal campaign (attributed via conversion setup).",
+      "tags": [
+        {
+          "name": "growth"
+        },
+        {
+          "name": "ads"
+        }
+      ],
+      "image": null,
+      "source_code_link": ""
+    },
+    {
+      "bullets": [
+        "Models Google/Meta campaign structure alongside lead capture for reporting.",
+        "Surfaces performance history and segmentation so recurring client work stays auditable.",
+        "Built as a pragmatic internal console rather than an all-in-one enterprise suite."
+      ],
+      "context": "Studio · React app",
+      "featured": false,
+      "impactLine": "Makes recurring marketing work auditable instead of losing context in ad-hoc sheets.",
+      "name": "Internal marketing operations tool",
+      "period": "Jan 2025 — Present",
+      "roleLine": "Internal tools — React console for campaign structure, leads, and performance history.",
+      "slug": "daol-marketing-tool",
+      "source_code_link": "https://github.com/ho0405",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Data modeling"
+      ],
+      "summary": "Single place for campaign structure, leads, performance logs, and client segmentation.",
+      "tags": [
+        {
+          "name": "react"
+        },
+        {
+          "name": "internal-tools"
+        }
+      ],
+      "image": null
+    },
+    {
+      "bullets": [
+        "Google Docs for invoice/document generation; payloads and timing flow through automation instead of manual copy-paste.",
+        "Gmail sends aligned to each client’s yearly subscription renewal—no forgetting the date or resending by hand.",
+        "Built as a repeatable studio workflow for recurring billing, not a one-off spreadsheet ritual."
+      ],
+      "context": "Studio · renewals · Google Workspace",
+      "featured": false,
+      "image": "https://cdn.sanity.io/images/z0se41xa/production/cba644bc47ed82400d6cb1928b3dda030da069d1-953x705.png?w=900&fit=max&auto=format",
+      "impactLine": "Subscription invoices dispatch on schedule; operators are not chained to calendar reminders and manual sends.",
+      "name": "Subscription invoice automation (Make · n8n · Gmail · Google Docs)",
+      "period": "Jan 2025 — Present",
+      "roleLine": "Renewal-day invoicing — Gmail + Google Docs driven by Make and n8n for yearly subscriptions.",
+      "slug": "daol-invoice-automation",
+      "source_code_link": "https://github.com/ho0405",
+      "stack": [
+        "n8n",
+        "Make.com",
+        "Gmail",
+        "Google Docs",
+        "Workflow automation"
+      ],
+      "tags": [
+        {
+          "name": "n8n"
+        },
+        {
+          "name": "make"
+        },
+        {
+          "name": "billing"
+        }
+      ]
+    }
+  ],
+  "seo": {
+    "description": "Ryan Back is a full-stack software engineer in Calgary. Production ERP experience, custom client websites through Daol Consulting, and a React and TypeScript stack with Firestore and Supabase.",
+    "keywords": [
+      "Ryan Back",
+      "full-stack engineer",
+      "software engineer Calgary",
+      "React developer",
+      "TypeScript",
+      "Next.js",
+      "Daol Consulting"
+    ],
+    "title": "Ryan Back | Full-Stack Software Engineer in Calgary"
+  }
+}

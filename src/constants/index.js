@@ -19,6 +19,8 @@ import skillGoogleAnalyticsLocal from "../assets/skill-icons/google-analytics.sv
 import skillMetaLocal from "../assets/skill-icons/meta-brand.svg";
 import skillOracleLocal from "../assets/skill-icons/oracle-brand.svg";
 import skillShopifyLocal from "../assets/skill-icons/shopify-color.svg";
+import skillSanityLocal from "../assets/skill-icons/sanity.svg";
+import skillContentfulLocal from "../assets/skill-icons/contentful.svg";
 
 /** Skillicons.dev — branded color SVG tiles (theme=light matches site canvas). https://skillicons.dev */
 const skillIconAsset = (slug) => `https://skillicons.dev/icons?i=${slug}&theme=light`;
@@ -39,6 +41,8 @@ const SKILL_ICON_BY_NAME = {
   "GitHub Actions (CI/CD)": skillIconAsset("githubactions"),
   Vercel: skillIconAsset("vercel"),
   Shopify: skillShopifyLocal,
+  "Sanity CMS": skillSanityLocal,
+  "Contentful CMS": skillContentfulLocal,
   "PostgreSQL / Supabase": skillIconAsset("supabase"),
   "Jest / RTL": skillIconAsset("jest"),
   Python: skillIconAsset("python"),
@@ -91,6 +95,8 @@ const backendSkillsRaw = [
 ];
 
 const toolsSkillsRaw = [
+  { name: "Contentful CMS", icon: javascript },
+  { name: "Sanity CMS", icon: javascript },
   { name: "GitHub Actions (CI/CD)", icon: git },
   { name: "git", icon: git },
   { name: "Shopify", icon: javascript },
